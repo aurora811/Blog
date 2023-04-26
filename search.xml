@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>Debian安装Qt 5.9.0</title>
+      <title>安装完成Debian后的操作</title>
       <link href="/posts/2c6b7343/"/>
       <url>/posts/2c6b7343/</url>
       
-        <content type="html"><![CDATA[<h1 id="0-前提"><a href="#0-前提" class="headerlink" title="0.前提"></a>0.前提</h1><p>在<code>Ubuntu</code>的上游<code>Debian</code>中安装Qt进行软件开发。</p><blockquote><p>Ubuntu与Debian的的区别？<br>1、Debian更加重视稳定性，也就意味着不一定是最新版本，总体来说相对于Ubuntu，Debian稳定版的软件版本更旧。<br>2、Ubuntu可以在64位的x86和ARM平台上使用，它不在提供32位的镜像，另一方面，Debian支持32位和64位架构，除此之外，还支持64位ARM、ARM EABI、ARMv7、小端MIPS等，所以被称为通用操作系统。</p></blockquote><h1 id="1-QT的下载"><a href="#1-QT的下载" class="headerlink" title="1.QT的下载"></a>1.QT的下载</h1><p>可以通过以下网站来进行Qt的下载:<br>Qt官方下载地址:<a href="https://download.qt.io/">https://download.qt.io</a><br>Qt官方下载新地址:<a href="https://download.qt.io/new_archive/qt/">https://download.qt.io/new_archive/qt/</a><br>Qt国内镜像下载地址:<a href="https://mirrors.cloud.tencent.com/qt">https://mirrors.cloud.tencent.com/qt</a><br>Qt安装包下载地址:<a href="http://qthub.com/download/">http://qthub.com/download/</a>    </p><h1 id="2-安装Qt"><a href="#2-安装Qt" class="headerlink" title="2.安装Qt"></a>2.安装Qt</h1><p>首先将下载Qt安装包导入操作系统,并安装。<br>(1)查看<code>qt-opensource-linux-x64-5.9.0.run</code>的详细信息，执行<code>ls -l</code></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">-rw-r--r-- <span class="hljs-number"> 1 </span>root   root  <span class="hljs-number"> 1030326091 </span> 7月<span class="hljs-number"> 30 </span>20:36 qt-opensource-linux-x64-5.9.0.run<br></code></pre></td></tr></table></figure><p>(2)修改<code>qt-opensource-linux-x64-5.9.0.run</code>的权限，使其具有运行权限,执行<code>sudo chmod 777 qt-opensource-linux-x64-5.9.0.run</code></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">-rwxrwxrwx<span class="hljs-number"> 1 </span>root   root  <span class="hljs-number"> 1030326091 </span> 7月<span class="hljs-number"> 30 </span>20:36 qt-opensource-linux-x64-5.9.0.run<br></code></pre></td></tr></table></figure><p>(3)运行进行安装，执行<code>./qt-opensource-linux-x64-5.9.0.run</code><br>(4)接下来就是图形化操作,如下:<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_1.jpg" alt="1"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_2.jpg" alt="2"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_3.jpg" alt="3"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_4.jpg" alt="4"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_5.jpg" alt="5"></p><h1 id="3-创建第一个Qt项目"><a href="#3-创建第一个Qt项目" class="headerlink" title="3.创建第一个Qt项目"></a>3.创建第一个Qt项目</h1><p>在安装完Qt后创建第一个Qt项目，进行编译时发生错误。如下图所示出现<code>cannot find -lGL</code>错误信息。<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt%E9%94%99%E8%AF%AF.jpg" alt="Debian安装Qt错误"></p><p><strong>解决方法:</strong><br>经过了解是因为缺少文件导致，需要安装部分文件，网上找到的解决方案是：安装<code>libqt4-dev</code>或者<code>libgl1-mesa-dev</code>或者<code>libgl1-mesa-dev</code>或者<code>libglu1-mesa-dev</code><br>在终端输入指令,更新软件包和安装缺失相关库:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt update<br>sudo apt-get install libqt4-dev<br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libglu1-mesa-dev<br></code></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>由于之前一直都在用Ubuntu系统，最近想玩Debian操作系统。在这里进行简单的记录</p><h1 id="0-准备"><a href="#0-准备" class="headerlink" title="0.准备"></a>0.准备</h1><p>这里我采用虚拟机安装。</p><ul><li>VMware® Workstation 14 Pro</li><li>Debian系统(debian-live-11.4.0-amd64-gnome.iso)</li></ul><blockquote><p>安装过程这里不做过多的介绍</p></blockquote><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       
       
       <categories>
@@ -31,11 +31,11 @@
     
     
     <entry>
-      <title>安装完成Debian后的操作</title>
+      <title>Debian安装Qt 5.9.0</title>
       <link href="/posts/2c6b7343/"/>
       <url>/posts/2c6b7343/</url>
       
-        <content type="html"><![CDATA[<p>由于之前一直都在用Ubuntu系统，最近想玩Debian操作系统。在这里进行简单的记录</p><h1 id="0-准备"><a href="#0-准备" class="headerlink" title="0.准备"></a>0.准备</h1><p>这里我采用虚拟机安装。</p><ul><li>VMware® Workstation 14 Pro</li><li>Debian系统(debian-live-11.4.0-amd64-gnome.iso)</li></ul><blockquote><p>安装过程这里不做过多的介绍</p></blockquote><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="0-前提"><a href="#0-前提" class="headerlink" title="0.前提"></a>0.前提</h1><p>在<code>Ubuntu</code>的上游<code>Debian</code>中安装Qt进行软件开发。</p><blockquote><p>Ubuntu与Debian的的区别？<br>1、Debian更加重视稳定性，也就意味着不一定是最新版本，总体来说相对于Ubuntu，Debian稳定版的软件版本更旧。<br>2、Ubuntu可以在64位的x86和ARM平台上使用，它不在提供32位的镜像，另一方面，Debian支持32位和64位架构，除此之外，还支持64位ARM、ARM EABI、ARMv7、小端MIPS等，所以被称为通用操作系统。</p></blockquote><h1 id="1-QT的下载"><a href="#1-QT的下载" class="headerlink" title="1.QT的下载"></a>1.QT的下载</h1><p>可以通过以下网站来进行Qt的下载:<br>Qt官方下载地址:<a href="https://download.qt.io/">https://download.qt.io</a><br>Qt官方下载新地址:<a href="https://download.qt.io/new_archive/qt/">https://download.qt.io/new_archive/qt/</a><br>Qt国内镜像下载地址:<a href="https://mirrors.cloud.tencent.com/qt">https://mirrors.cloud.tencent.com/qt</a><br>Qt安装包下载地址:<a href="http://qthub.com/download/">http://qthub.com/download/</a>    </p><h1 id="2-安装Qt"><a href="#2-安装Qt" class="headerlink" title="2.安装Qt"></a>2.安装Qt</h1><p>首先将下载Qt安装包导入操作系统,并安装。<br>(1)查看<code>qt-opensource-linux-x64-5.9.0.run</code>的详细信息，执行<code>ls -l</code></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">-rw-r--r-- <span class="hljs-number"> 1 </span>root   root  <span class="hljs-number"> 1030326091 </span> 7月<span class="hljs-number"> 30 </span>20:36 qt-opensource-linux-x64-5.9.0.run<br></code></pre></td></tr></table></figure><p>(2)修改<code>qt-opensource-linux-x64-5.9.0.run</code>的权限，使其具有运行权限,执行<code>sudo chmod 777 qt-opensource-linux-x64-5.9.0.run</code></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">-rwxrwxrwx<span class="hljs-number"> 1 </span>root   root  <span class="hljs-number"> 1030326091 </span> 7月<span class="hljs-number"> 30 </span>20:36 qt-opensource-linux-x64-5.9.0.run<br></code></pre></td></tr></table></figure><p>(3)运行进行安装，执行<code>./qt-opensource-linux-x64-5.9.0.run</code><br>(4)接下来就是图形化操作,如下:<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_1.jpg" alt="1"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_2.jpg" alt="2"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_3.jpg" alt="3"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_4.jpg" alt="4"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_5.jpg" alt="5"></p><h1 id="3-创建第一个Qt项目"><a href="#3-创建第一个Qt项目" class="headerlink" title="3.创建第一个Qt项目"></a>3.创建第一个Qt项目</h1><p>在安装完Qt后创建第一个Qt项目，进行编译时发生错误。如下图所示出现<code>cannot find -lGL</code>错误信息。<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt%E9%94%99%E8%AF%AF.jpg" alt="Debian安装Qt错误"></p><p><strong>解决方法:</strong><br>经过了解是因为缺少文件导致，需要安装部分文件，网上找到的解决方案是：安装<code>libqt4-dev</code>或者<code>libgl1-mesa-dev</code>或者<code>libgl1-mesa-dev</code>或者<code>libglu1-mesa-dev</code><br>在终端输入指令,更新软件包和安装缺失相关库:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt update<br>sudo apt-get install libqt4-dev<br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libglu1-mesa-dev<br></code></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1395,31 +1395,6 @@
     
     
     <entry>
-      <title>Linux:gcc编译器</title>
-      <link href="/posts/ff09d5df/"/>
-      <url>/posts/ff09d5df/</url>
-      
-        <content type="html"><![CDATA[<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p><code>GCC</code> 原名为 <code>GNU C </code>语言编译器<code>（GNU C Compiler）</code>，因为它原本只能处理 C语言。<code>GCC </code>很快地扩展，变得可处理 <code>C++</code>。后来又扩展能够支持更多编程语言，所以改名GNU编译器套件<code>（GNU Compiler Collection）</code>。</p><h1 id="2-gcc主要特征"><a href="#2-gcc主要特征" class="headerlink" title="2.gcc主要特征"></a>2.gcc主要特征</h1><ol><li>gcc是一个可移植的编译器，支持多种硬件平台   </li><li>gcc不仅仅是个本地编译器，它还可以跨平台交叉编译    </li><li>gcc是有多种语言前端，用于解析不同的语言   </li><li>gcc是按模块化设计的，可以加入新语言和新CPU架构的支持   </li><li>gcc是自由软件   <h1 id="3-gcc编译的过程"><a href="#3-gcc编译的过程" class="headerlink" title="3.gcc编译的过程"></a>3.gcc编译的过程</h1>gcc编译过程的流程：<br><img src="https://img-blog.csdnimg.cn/20200923003744157.png#pic_center" alt="gcc编译过程"></li></ol><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">编译的总过程 gcc hello.c -o app <br><span class="hljs-number">1.</span> 预处理  gcc -Wall -E hello.c -o hello.i<br><span class="hljs-number">2.</span> 编译    gcc -Wall -S hello.i -o hello.s<br><span class="hljs-number">3.</span> 汇编    gcc -Wall -c hello.s -o hello.o<br><span class="hljs-number">4.</span> 链接    gcc -Wall -g -o hello<br></code></pre></td></tr></table></figure><h1 id="4-gcc常用的编译选项"><a href="#4-gcc常用的编译选项" class="headerlink" title="4.gcc常用的编译选项"></a>4.gcc常用的编译选项</h1><table><thead><tr><th>选项</th><th align="left">作用</th><th>生成文件</th></tr></thead><tbody><tr><td>-o</td><td align="left">产生目标文件（.i、.s、.o、可执行程序）</td><td>可执行程序</td></tr><tr><td>-c</td><td align="left">编译源码并在最后生成可执行程序</td><td>*.o</td></tr><tr><td>-E</td><td align="left">只运行C预编译器</td><td>*.i</td></tr><tr><td>-S</td><td align="left">生成汇编语言文件后停止编译</td><td>*.s</td></tr><tr><td>-g</td><td align="left">在目标文件中添加调试信息，以便于gdb之类的调试程序</td><td></td></tr><tr><td>-Wall</td><td align="left">使gcc对源文件的代码有问题的地方发出警示</td><td></td></tr><tr><td>-Idir</td><td align="left">将目录加入搜索头文件的目录路径</td><td></td></tr><tr><td>-Ldir</td><td align="left">将目录加入搜索库的目录路径</td><td></td></tr></tbody></table><h1 id="5-gcc编译动态库"><a href="#5-gcc编译动态库" class="headerlink" title="5.gcc编译动态库"></a>5.gcc编译动态库</h1><p>参看此篇文章：<br><a href="https://blog.csdn.net/qq_43630810/article/details/105696429">https://blog.csdn.net/qq_43630810/article/details/105696429</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> gcc </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux:Vim的使用与配置(初学必看)</title>
       <link href="/posts/ff09d5df/"/>
       <url>/posts/ff09d5df/</url>
@@ -1437,6 +1412,31 @@
         <tags>
             
             <tag> vim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux:gcc编译器</title>
+      <link href="/posts/ff09d5df/"/>
+      <url>/posts/ff09d5df/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p><code>GCC</code> 原名为 <code>GNU C </code>语言编译器<code>（GNU C Compiler）</code>，因为它原本只能处理 C语言。<code>GCC </code>很快地扩展，变得可处理 <code>C++</code>。后来又扩展能够支持更多编程语言，所以改名GNU编译器套件<code>（GNU Compiler Collection）</code>。</p><h1 id="2-gcc主要特征"><a href="#2-gcc主要特征" class="headerlink" title="2.gcc主要特征"></a>2.gcc主要特征</h1><ol><li>gcc是一个可移植的编译器，支持多种硬件平台   </li><li>gcc不仅仅是个本地编译器，它还可以跨平台交叉编译    </li><li>gcc是有多种语言前端，用于解析不同的语言   </li><li>gcc是按模块化设计的，可以加入新语言和新CPU架构的支持   </li><li>gcc是自由软件   <h1 id="3-gcc编译的过程"><a href="#3-gcc编译的过程" class="headerlink" title="3.gcc编译的过程"></a>3.gcc编译的过程</h1>gcc编译过程的流程：<br><img src="https://img-blog.csdnimg.cn/20200923003744157.png#pic_center" alt="gcc编译过程"></li></ol><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">编译的总过程 gcc hello.c -o app <br><span class="hljs-number">1.</span> 预处理  gcc -Wall -E hello.c -o hello.i<br><span class="hljs-number">2.</span> 编译    gcc -Wall -S hello.i -o hello.s<br><span class="hljs-number">3.</span> 汇编    gcc -Wall -c hello.s -o hello.o<br><span class="hljs-number">4.</span> 链接    gcc -Wall -g -o hello<br></code></pre></td></tr></table></figure><h1 id="4-gcc常用的编译选项"><a href="#4-gcc常用的编译选项" class="headerlink" title="4.gcc常用的编译选项"></a>4.gcc常用的编译选项</h1><table><thead><tr><th>选项</th><th align="left">作用</th><th>生成文件</th></tr></thead><tbody><tr><td>-o</td><td align="left">产生目标文件（.i、.s、.o、可执行程序）</td><td>可执行程序</td></tr><tr><td>-c</td><td align="left">编译源码并在最后生成可执行程序</td><td>*.o</td></tr><tr><td>-E</td><td align="left">只运行C预编译器</td><td>*.i</td></tr><tr><td>-S</td><td align="left">生成汇编语言文件后停止编译</td><td>*.s</td></tr><tr><td>-g</td><td align="left">在目标文件中添加调试信息，以便于gdb之类的调试程序</td><td></td></tr><tr><td>-Wall</td><td align="left">使gcc对源文件的代码有问题的地方发出警示</td><td></td></tr><tr><td>-Idir</td><td align="left">将目录加入搜索头文件的目录路径</td><td></td></tr><tr><td>-Ldir</td><td align="left">将目录加入搜索库的目录路径</td><td></td></tr></tbody></table><h1 id="5-gcc编译动态库"><a href="#5-gcc编译动态库" class="headerlink" title="5.gcc编译动态库"></a>5.gcc编译动态库</h1><p>参看此篇文章：<br><a href="https://blog.csdn.net/qq_43630810/article/details/105696429">https://blog.csdn.net/qq_43630810/article/details/105696429</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> gcc </tag>
             
         </tags>
       
