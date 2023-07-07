@@ -4,25 +4,23 @@
   
     
     <entry>
-      <title>安装完成Debian后的操作</title>
-      <link href="/posts/2c6b7343/"/>
-      <url>/posts/2c6b7343/</url>
+      <title>嵌入式Linux 入门与常识</title>
+      <link href="/posts/ec687a03/"/>
+      <url>/posts/ec687a03/</url>
       
-        <content type="html"><![CDATA[<p>由于之前一直都在用Ubuntu系统，最近想玩Debian操作系统。在这里进行简单的记录</p><h1 id="0-准备"><a href="#0-准备" class="headerlink" title="0.准备"></a>0.准备</h1><p>这里我采用虚拟机安装。</p><ul><li>VMware® Workstation 14 Pro</li><li>Debian系统(debian-live-11.4.0-amd64-gnome.iso)</li></ul><blockquote><p>安装过程这里不做过多的介绍</p></blockquote><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+        <content type="html"><![CDATA[<p>前言</p><h1 id="一、什么是Linux应用程序？"><a href="#一、什么是Linux应用程序？" class="headerlink" title="一、什么是Linux应用程序？"></a>一、什么是Linux应用程序？</h1><ul><li>运行在Linux操作系统用户空间的程序</li><li>内核程序运行在内核空间、应用程序运行在用户空间<blockquote><p>比如在终端下执行各种命令ls cd pwd ps等运行在用户空间</p></blockquote></li><li>内核空间和用户空间</li></ul><h1 id="二、应用程序和驱动程序、单片机程序有何不同？"><a href="#二、应用程序和驱动程序、单片机程序有何不同？" class="headerlink" title="二、应用程序和驱动程序、单片机程序有何不同？"></a>二、应用程序和驱动程序、单片机程序有何不同？</h1><h2 id="2-1-与驱动程序的不同"><a href="#2-1-与驱动程序的不同" class="headerlink" title="2.1 与驱动程序的不同"></a>2.1 与驱动程序的不同</h2><ul><li><p>所在空间不同</p><blockquote><p>应用程序运行在用户空间、驱动程序运行在内核空间</p></blockquote></li><li><p>功能、作用不同</p><blockquote><p>应用程序完成的是业务逻辑、驱动程序完成的是底层硬件操作逻辑</p></blockquote></li><li><p>编译方式</p><blockquote><p>驱动程序可编译成模块或内置到内核，但都需要依赖内核源码进行编译</p></blockquote><blockquote><p>应用程序单独编译</p></blockquote><h2 id="2-2-与单片机程序的不同"><a href="#2-2-与单片机程序的不同" class="headerlink" title="2.2 与单片机程序的不同"></a>2.2 与单片机程序的不同</h2><p>单片机程序是逻辑程序，没有操作系统的概念</p><p>单片机程序是硬件驱动+业务逻辑的集合，程序是整体编译</p></li></ul><h1 id="三、如何编写Linux应用程序"><a href="#三、如何编写Linux应用程序" class="headerlink" title="三、如何编写Linux应用程序"></a>三、如何编写Linux应用程序</h1><h2 id="3-1系统调用"><a href="#3-1系统调用" class="headerlink" title="3.1系统调用"></a>3.1系统调用</h2><p>Linux操作系统向应用层提供的接口，system call,是Linux应用层进入内核空间的入口</p><h2 id="3-2库函数：标准C库函数"><a href="#3-2库函数：标准C库函数" class="headerlink" title="3.2库函数：标准C库函数"></a>3.2库函数：标准C库函数</h2><p>对系统调用的封装，在效率和使用便利性方面有提供</p><h2 id="3-3不要局限于编程语言"><a href="#3-3不要局限于编程语言" class="headerlink" title="3.3不要局限于编程语言"></a>3.3不要局限于编程语言</h2><p>可通过C/C++、Python、Shell、Qt来编写应用程序</p><h1 id="四、什么事文件I-O"><a href="#四、什么事文件I-O" class="headerlink" title="四、什么事文件I/O"></a>四、什么事文件I/O</h1><p>文件I/O(input/output):文件I/O指的是对文件的输入、输出操作、通俗点说就是对文件的读/写操作。</p>]]></content>
       
       
       <categories>
           
-          <category> Linux </category>
-          
-          <category> Debian </category>
+          <category> 嵌入式 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Debian </tag>
+            <tag> 嵌入式 </tag>
             
         </tags>
       
@@ -31,11 +29,11 @@
     
     
     <entry>
-      <title>Debian安装Qt 5.9.0</title>
+      <title>Debian11安装Qt 5.9.0</title>
       <link href="/posts/2c6b7343/"/>
       <url>/posts/2c6b7343/</url>
       
-        <content type="html"><![CDATA[<h1 id="0-前提"><a href="#0-前提" class="headerlink" title="0.前提"></a>0.前提</h1><p>在<code>Ubuntu</code>的上游<code>Debian</code>中安装Qt进行软件开发。</p><blockquote><p>Ubuntu与Debian的的区别？<br>1、Debian更加重视稳定性，也就意味着不一定是最新版本，总体来说相对于Ubuntu，Debian稳定版的软件版本更旧。<br>2、Ubuntu可以在64位的x86和ARM平台上使用，它不在提供32位的镜像，另一方面，Debian支持32位和64位架构，除此之外，还支持64位ARM、ARM EABI、ARMv7、小端MIPS等，所以被称为通用操作系统。</p></blockquote><h1 id="1-QT的下载"><a href="#1-QT的下载" class="headerlink" title="1.QT的下载"></a>1.QT的下载</h1><p>可以通过以下网站来进行Qt的下载:<br>Qt官方下载地址:<a href="https://download.qt.io/">https://download.qt.io</a><br>Qt官方下载新地址:<a href="https://download.qt.io/new_archive/qt/">https://download.qt.io/new_archive/qt/</a><br>Qt国内镜像下载地址:<a href="https://mirrors.cloud.tencent.com/qt">https://mirrors.cloud.tencent.com/qt</a><br>Qt安装包下载地址:<a href="http://qthub.com/download/">http://qthub.com/download/</a>    </p><h1 id="2-安装Qt"><a href="#2-安装Qt" class="headerlink" title="2.安装Qt"></a>2.安装Qt</h1><p>首先将下载Qt安装包导入操作系统,并安装。<br>(1)查看<code>qt-opensource-linux-x64-5.9.0.run</code>的详细信息，执行<code>ls -l</code></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">-rw-r--r-- <span class="hljs-number"> 1 </span>root   root  <span class="hljs-number"> 1030326091 </span> 7月<span class="hljs-number"> 30 </span>20:36 qt-opensource-linux-x64-5.9.0.run<br></code></pre></td></tr></table></figure><p>(2)修改<code>qt-opensource-linux-x64-5.9.0.run</code>的权限，使其具有运行权限,执行<code>sudo chmod 777 qt-opensource-linux-x64-5.9.0.run</code></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">-rwxrwxrwx<span class="hljs-number"> 1 </span>root   root  <span class="hljs-number"> 1030326091 </span> 7月<span class="hljs-number"> 30 </span>20:36 qt-opensource-linux-x64-5.9.0.run<br></code></pre></td></tr></table></figure><p>(3)运行进行安装，执行<code>./qt-opensource-linux-x64-5.9.0.run</code><br>(4)接下来就是图形化操作,如下:<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_1.jpg" alt="1"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_2.jpg" alt="2"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_3.jpg" alt="3"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_4.jpg" alt="4"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_5.jpg" alt="5"></p><h1 id="3-创建第一个Qt项目"><a href="#3-创建第一个Qt项目" class="headerlink" title="3.创建第一个Qt项目"></a>3.创建第一个Qt项目</h1><p>在安装完Qt后创建第一个Qt项目，进行编译时发生错误。如下图所示出现<code>cannot find -lGL</code>错误信息。<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt%E9%94%99%E8%AF%AF.jpg" alt="Debian安装Qt错误"></p><p><strong>解决方法:</strong><br>经过了解是因为缺少文件导致，需要安装部分文件，网上找到的解决方案是：安装<code>libqt4-dev</code>或者<code>libgl1-mesa-dev</code>或者<code>libgl1-mesa-dev</code>或者<code>libglu1-mesa-dev</code><br>在终端输入指令,更新软件包和安装缺失相关库:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt update<br>sudo apt-get install libqt4-dev<br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libglu1-mesa-dev<br></code></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="0-前提"><a href="#0-前提" class="headerlink" title="0.前提"></a>0.前提</h1><p>在<code>Ubuntu</code>的上游<code>Debian</code>中安装Qt进行软件开发</p><blockquote><p>Ubuntu与Debian的的区别？    </p></blockquote><ul><li>Debian更加重视稳定性，也就意味着不一定是最新版本，总体来说相对于Ubuntu，Debian稳定版的软件版本更旧。   </li><li>Ubuntu可以在64位的x86和ARM平台上使用，它不在提供32位的镜像，另一方面，Debian支持32位和64位架构，除此之外，还支持64位ARM、ARM EABI、ARMv7、小端MIPS等，所以被称为通用操作系统。<h1 id="1-QT的下载地址"><a href="#1-QT的下载地址" class="headerlink" title="1.QT的下载地址"></a>1.QT的下载地址</h1>可以通过以下网站来进行Qt安装包的下载:   </li><li>Qt官方下载地址:<a href="https://download.qt.io/">https://download.qt.io</a>     </li><li>Qt官方下载新地址:<a href="https://download.qt.io/new_archive/qt/">https://download.qt.io/new_archive/qt/</a>     </li><li>Qt国内镜像下载地址:<a href="https://mirrors.cloud.tencent.com/qt">https://mirrors.cloud.tencent.com/qt</a>    </li><li>Qt安装包下载地址:<a href="http://qthub.com/download/">http://qthub.com/download/</a>    </li></ul><h1 id="2-安装Qt"><a href="#2-安装Qt" class="headerlink" title="2.安装Qt"></a>2.安装Qt</h1><p>首先将下载Qt安装包导入操作系统,并安装。</p><p>(1)查看<code>qt-opensource-linux-x64-5.9.0.run</code>的详细信息，执行<code>ls -l</code></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">-rw-r--r-- <span class="hljs-number"> 1 </span>root   root  <span class="hljs-number"> 1030326091 </span> 7月<span class="hljs-number"> 30 </span>20:36 qt-opensource-linux-x64-5.9.0.run<br></code></pre></td></tr></table></figure><p>(2)修改<code>qt-opensource-linux-x64-5.9.0.run</code>的权限，使其具有运行权限,执行<code>sudo chmod 777 qt-opensource-linux-x64-5.9.0.run</code></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">-rwxrwxrwx<span class="hljs-number"> 1 </span>root   root  <span class="hljs-number"> 1030326091 </span> 7月<span class="hljs-number"> 30 </span>20:36 qt-opensource-linux-x64-5.9.0.run<br></code></pre></td></tr></table></figure><p>(3)运行进行安装，执行<code>./qt-opensource-linux-x64-5.9.0.run</code></p><p>(4)接下来就是图形化操作,如下:</p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_1.jpg" alt="1"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_2.jpg" alt="2"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_3.jpg" alt="3"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_4.jpg" alt="4"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt_5.jpg" alt="5"></p><h1 id="3-创建第一个Qt项目"><a href="#3-创建第一个Qt项目" class="headerlink" title="3.创建第一个Qt项目"></a>3.创建第一个Qt项目</h1><p>在安装完Qt后创建第一个Qt项目，进行编译时发生错误。如下图所示出现<code>cannot find -lGL</code>错误信息。<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Linux/Debian/Debian%E5%AE%89%E8%A3%85Qt%E9%94%99%E8%AF%AF.jpg" alt="Debian安装Qt错误"></p><p><strong>解决方法:</strong><br>经过了解是因为缺少文件导致，需要安装部分文件，网上找到的解决方案是：安装<code>libqt4-dev</code>或者<code>libgl1-mesa-dev</code>或者<code>libgl1-mesa-dev</code>或者<code>libglu1-mesa-dev</code><br>在终端输入指令,更新软件包和安装缺失相关库:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt update<br>sudo apt-get install libqt4-dev<br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libgl1-mesa-dev<br>sudo apt-get install libglu1-mesa-dev<br></code></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -67,6 +65,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> C/C++ </category>
           
       </categories>
@@ -92,7 +92,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -162,7 +162,7 @@
     
     
     <entry>
-      <title>字符串与文本处理:字符串string_algo</title>
+      <title>C++ Boost库  5、字符串string_algo</title>
       <link href="/posts/1a0ce215/"/>
       <url>/posts/1a0ce215/</url>
       
@@ -171,6 +171,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> Boost </category>
           
       </categories>
@@ -187,7 +189,7 @@
     
     
     <entry>
-      <title>字符串与文本处理:字符串格式化format</title>
+      <title>C++ Boost库  4、字符串格式化format</title>
       <link href="/posts/ac3425a6/"/>
       <url>/posts/ac3425a6/</url>
       
@@ -196,6 +198,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> Boost </category>
           
       </categories>
@@ -212,7 +216,7 @@
     
     
     <entry>
-      <title>字符串与文本处理:数值转换lexical_cast</title>
+      <title>C++ Boost库  3、数值转换lexical_cast</title>
       <link href="/posts/dac3ac85/"/>
       <url>/posts/dac3ac85/</url>
       
@@ -221,6 +225,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> Boost </category>
           
       </categories>
@@ -237,7 +243,7 @@
     
     
     <entry>
-      <title>Windows下编译Boost库及使用</title>
+      <title>C++ Boost库  2、Windows下编译Boost库</title>
       <link href="/posts/b3e4184/"/>
       <url>/posts/b3e4184/</url>
       
@@ -246,6 +252,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> Boost </category>
           
       </categories>
@@ -262,7 +270,7 @@
     
     
     <entry>
-      <title>linux下编译Boost库</title>
+      <title>C++ Boost库  1、Linux下编译Boost库</title>
       <link href="/posts/2dd38614/"/>
       <url>/posts/2dd38614/</url>
       
@@ -270,6 +278,8 @@
       
       
       <categories>
+          
+          <category> 语言基础 </category>
           
           <category> Boost </category>
           
@@ -314,14 +324,16 @@
     
     
     <entry>
-      <title>Ubuntu:Ubuntu 20.04安装常用工具</title>
-      <link href="/posts/8f9c5b5c/"/>
-      <url>/posts/8f9c5b5c/</url>
+      <title>Ubuntu系列之安装ssh服务器</title>
+      <link href="/posts/25beed90/"/>
+      <url>/posts/25beed90/</url>
       
-        <content type="html"><![CDATA[<p>在我们使用Linux时，需要安装一个必备的工具，但是有时候又记不住命令，一条一条的安装太麻烦了。那有没有什么方式可以方便的安装。使用linux的都知道使用<code>make</code>来构建和管理自己的工程。<br>至于有关Makefile的详细学习可以参考其他文章，此处不作介绍。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><code class="hljs shell">install:<br>sudo apt-get update #更新软件列表<br>sudo apt-get upgrade #更新软件<br>sudo apt-get install aptitude #安装另外一个与apt-get功能相近的下载工具<br>sudo apt-get install rpm #安装Centos的rpm安装包<br>sudo apt-get install net-tools #网络工具<br>sudo apt-get install htop #htop是top的升级版,允许用户监视系统上运行的进程<br>sudo apt-get install rar   #解压工具 <br>sudo apt-get install tree  #以树形状显示当前文件和目录<br>sudo apt-get install lrzsz #上传文件  #sz下载，rz上传<br><br>sudo apt-get install vim   #vim编译器<br>sudo apt-get install gcc<br>sudo apt-get install g++<br>sudo apt-get install gdb  #gdb调试器<br>sudo apt-get install make <br><br>sudo apt-get install cloc #代码量统计工具<br><br>sudo apt-get install openssh-server #安装ssh服务器，启动服务sudo systemctl start ssh<br>ftp:<br>sudo apt-get install vsftpd<br>sudo apt-get install lftp<br>sudo apt-get install openssh-server #安装ssh服务器，启动服务sudo systemctl start ssh<br>sudo apt-get install nfs-kernel-server<br>software:<br>sudo apt-get install flameshot #截图工具 设置-&gt;键盘快捷键中添加<br>sudo apt-get install vlc #播放器<br><span class="hljs-meta">#</span><span class="bash">apt-cache policy wine <span class="hljs-comment"># 查看最新版本</span></span><br>sudo apt-get install wine #安装默认的wine<br>mysqll:#Ubuntu 20.04 源仓库中最新的 MySQL 版本号是 MySQL 8.0<br>sudo apt install mysql-server<br>sudo systemctl status mysql #想要验证 MySQL 服务器正在运行<br><span class="hljs-meta">#</span><span class="bash">sudo mysql_secure_installation  <span class="hljs-comment">#MySQL 安装文件附带了一个名为mysql_secure_installation的脚本，它允许你很容易地提高数据库服务器的安全性。</span></span><br>mysql-5.7:<br><span class="hljs-meta">#</span><span class="bash"> 安装mysql5.7服务端</span><br>sudo apt-get install mysql-server-5.7<br><span class="hljs-meta">#</span><span class="bash"> 安装mysql5.7客户端</span><br>sudo apt-get install mysql-client-5.7<br><span class="hljs-meta">#</span><span class="bash"> 使用c/c++等语言操作mysql的动态链接库，如果不需要可不安装</span><br>sudo apt install libmysqlclient-dev<br><span class="hljs-meta">#</span><span class="bash">ubuntu安装MySQL的可视化管理工具</span><br>sudo apt-get install mysql-workbench<br>mysql-5.7-remove:<br><span class="hljs-meta">#</span><span class="bash"> 卸载mysql：</span><br><span class="hljs-meta">#</span><span class="bash">sudo apt-get autoremove mysql* --purge</span><br>sudo apt-get remove mysql-server<br>sudo apt-get remove mysql-common<br><span class="hljs-meta">#</span><span class="bash"> 清理残留数据</span><br>sudo dpkg -l |grep mysql|awk &#x27;&#123;print $2&#125;&#x27; |sudo xargs dpkg -P<br>sudo rm -rf /etc/mysql/<br>sudo rm -rf /var/lib/mysql<br><span class="hljs-meta">#</span><span class="bash"> 检查是否删除完毕</span><br>whereis mysql<br>sudo find / -name mysql<br>git:<br>sudo apt-get install git<br>git --version #查看git的版本<br>git config --global user.name &quot;Aurora811&quot; #配置个人的用户名<br>git config --global user.email 15029502113@163.com #配置个人的邮箱地址<br>git config --global user.name  <br>git config --global user.email<br>git config --list #查看已有的配置信息<br>svnn:<br>sudo apt-get install subversion #安装svn<br>svn --version<br>clean:<br>sudo apt-get clean #清理所有安装包<br>remove:<br>sudo apt-get remove tree<br>wan:<br>sudo apt-get install sl #跑火车,使用时sl<br>sudo apt-get install libaa-bin #在终端黑色界面上看到火..,使用aafire<br>sudo apt-get install fortune #输出一句话<br>sudo apt-get install cowsay #用ASCII字符串打印动物,使用coway www.zhiguoxin.cn<br>sudo apt-get install cmatrix #有黑客帝国效果,使用cmatrix<br>sudo apt-get install figlet #艺术字生成器 使用figlet fuck you <br>sudo apt-get install toilet #使用 toilet i love you<br>sudo apt-get install oneko #桌面会生成一个喵星人，使用oneko<br>sudo apt-get install screenfetch #查看系统，主题信息,使用screenfetch<br>sudo apt-get install linuxlogo #显示linux版本logo图片系统信息 使用linux_logo<br><span class="hljs-meta">#</span><span class="bash">拥有高大上的仪表盘</span><br>sudo apt-add-repository ppa:hollywood/ppa<br>sudo apt-get install hollywood<br>sudo apt-get install byobu<br><br>sudo apt-get install npm nodejs<br>sudo apt install nodejs-legacy<br>git clone https://github.com/yaronn/blessed-contrib.git<br>cd blessed-contrib<br>npm install  #运行node ./examples/dsshboard.js<br></code></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>用Xshell连接虚拟机（Liunx）时，发生了这一项错误。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">Connecting to 192.168.198.141:22...<br>Could not connect to &#x27;192.168.198.141&#x27; (port 22): Connection failed.<br></code></pre></td></tr></table></figure><h1 id="二、解决问题"><a href="#二、解决问题" class="headerlink" title="二、解决问题"></a>二、解决问题</h1><h2 id="2-1-判断是否安装ssh服务"><a href="#2-1-判断是否安装ssh服务" class="headerlink" title="2.1 判断是否安装ssh服务"></a>2.1 判断是否安装ssh服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -e|grep ssh<br></code></pre></td></tr></table></figure><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706222443.png"></p><h2 id="2-2-安装ssh服务器"><a href="#2-2-安装ssh服务器" class="headerlink" title="2.2 安装ssh服务器"></a>2.2 安装ssh服务器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install openssh-server<br></code></pre></td></tr></table></figure><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706222521.png"></p><h2 id="2-3-判断是否启动"><a href="#2-3-判断是否启动" class="headerlink" title="2.3 判断是否启动"></a>2.3 判断是否启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -e|grep ssh<br></code></pre></td></tr></table></figure><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706222730.png"></p>]]></content>
       
       
       <categories>
+          
+          <category> Linux </category>
           
           <category> Ubuntu </category>
           
@@ -339,14 +351,16 @@
     
     
     <entry>
-      <title>Ubuntu:Ubuntu 20.04下安装常用软件</title>
-      <link href="/posts/2a0d0900/"/>
-      <url>/posts/2a0d0900/</url>
+      <title>Ubuntu系列之Ubuntu 20.04卸载不常用的软件</title>
+      <link href="/posts/68a957aa/"/>
+      <url>/posts/68a957aa/</url>
       
-        <content type="html"><![CDATA[<!-- TOC --><ul><li><a href="#1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6">1.安装常用的软件</a><ul><li><a href="#11vs-code%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E5%99%A8">1.1VS code代码编译器</a><pre><code>- [2、DBeaver数据库管理软件](#2dbeaver数据库管理软件)- [3、utools工具](#3utools工具)- [4、wps](#4wps)- [5、火焰截图(flameshot)](#5火焰截图flameshot)- [6、Google](#6google)- [7、播放器(vlc)](#7播放器vlc)</code></pre><ul><li><a href="#%E4%BA%8C%E5%AE%89%E8%A3%85%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4">二、安装执行命令：</a></li></ul></li></ul></li></ul><!-- /TOC --><h1 id="1-安装常用的软件"><a href="#1-安装常用的软件" class="headerlink" title="1.安装常用的软件"></a>1.安装常用的软件</h1><h2 id="1-1VS-code代码编译器"><a href="#1-1VS-code代码编译器" class="headerlink" title="1.1VS code代码编译器"></a>1.1VS code代码编译器</h2><blockquote><p>注意：不要在Ubuntu自带的商店安装，可能出现无法输入中文的bug</p></blockquote><p>从<a href="https://code.visualstudio.com/Download">官网下载界面</a>下载deb包，并安装</p><h5 id="2、DBeaver数据库管理软件"><a href="#2、DBeaver数据库管理软件" class="headerlink" title="2、DBeaver数据库管理软件"></a>2、DBeaver数据库管理软件</h5><p>从<a href="https://dbeaver.io/download/">官网下载页面</a>下载 <code>DBeaver Community Edition</code> 的 <code>deb</code> 包，并安装。</p><h5 id="3、utools工具"><a href="#3、utools工具" class="headerlink" title="3、utools工具"></a>3、utools工具</h5><p>从<a href="https://u.tools/">官网下载页面</a>下载deb包，并安装</p><h5 id="4、wps"><a href="#4、wps" class="headerlink" title="4、wps"></a>4、wps</h5><p>从<a href="https://linux.wps.cn/">官网下载网页</a>下载deb包，并安装<br>安装完成后打开wps,提示系统缺失字体<br>寻找一台 Windows 电脑，将 C:\Windows\Fonts 中对应的字体复制到 Ubuntu 的 /usr/share/fonts/wps-office/ 目录下，重新启动 WPS 即可。</p><h5 id="5、火焰截图-flameshot"><a href="#5、火焰截图-flameshot" class="headerlink" title="5、火焰截图(flameshot)"></a>5、火焰截图(flameshot)</h5><p><code>sudo apt-get install flameshot</code></p><h5 id="6、Google"><a href="#6、Google" class="headerlink" title="6、Google"></a>6、Google</h5><p>在<a href="https://www.google.com/intl/zh-CN/chrome/">官网下载网页</a>下载deb包，并安装</p><h5 id="7、播放器-vlc"><a href="#7、播放器-vlc" class="headerlink" title="7、播放器(vlc)"></a>7、播放器(vlc)</h5><p><code>sudo apt-get install vlc</code></p><h4 id="二、安装执行命令："><a href="#二、安装执行命令：" class="headerlink" title="二、安装执行命令："></a>二、安装执行命令：</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> dpkg -i code_<span class="hljs-number">1</span>.<span class="hljs-number">62</span>.<span class="hljs-number">3</span>-<span class="hljs-number">1637137107</span>_amd<span class="hljs-number">64</span>.deb<br><span class="hljs-attribute">sudo</span> dpkg -i dbeaver-ce_<span class="hljs-number">21</span>.<span class="hljs-number">3</span>.<span class="hljs-number">0</span>_amd<span class="hljs-number">64</span>.deb<br><span class="hljs-attribute">sudo</span> dpkg -i utools_<span class="hljs-number">1</span>.<span class="hljs-number">3</span>.<span class="hljs-number">3</span>_amd<span class="hljs-number">64</span>.deb<br><span class="hljs-attribute">sudo</span> dpkg -i wps-office_<span class="hljs-number">11.1.0.107</span><span class="hljs-number">02</span>_amd<span class="hljs-number">64</span>.deb<br><span class="hljs-attribute">sudo</span> apt-get install flameshot<br><span class="hljs-attribute">sudo</span> dpkg -i google-chrome-stable_current_amd<span class="hljs-number">64</span>.deb<br></code></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>Ubuntu在安装后直接卸载Firefox浏览器、LibreOffic办公四件套安装平替软件Googe浏览器与WPS。</p><h1 id="一、卸载Firefox浏览器"><a href="#一、卸载Firefox浏览器" class="headerlink" title="一、卸载Firefox浏览器"></a>一、卸载Firefox浏览器</h1><p>参考：<code>https://blog.csdn.net/liuyuekelejic/article/details/106013185</code></p><p>执行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">dpkg --get-selections  | grep firefox<br>sudo apt-get purge  firefox firefox-locale-en firefox-locale-zh-hans<br></code></pre></td></tr></table></figure><p>操作过程，如图所示：</p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706212805.png"></p><h1 id="二、卸载-LibreOffice"><a href="#二、卸载-LibreOffice" class="headerlink" title="二、卸载 LibreOffice"></a>二、卸载 LibreOffice</h1><p>参考： <code>https://www.linuxmi.com/ubuntu-20-04-xiezai-libreoffice.html</code></p><p>执行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt remove libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-writer  #卸载libreoffice表格、libreoffice绘图、幻灯片工具、word文档工具<br>sudo apt remove libreoffice* #把其它libreoffice相关的都卸载了<br>sudo apt purge libreoffice*  #清除libreoffice配置文件<br>sudo apt autoremove<br><br></code></pre></td></tr></table></figure><h1 id="三、清理Ubuntu系统缓存"><a href="#三、清理Ubuntu系统缓存" class="headerlink" title="三、清理Ubuntu系统缓存"></a>三、清理Ubuntu系统缓存</h1><p>参考：<code>https://zhuanlan.zhihu.com/p/569657780</code><br>执行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo du -sh /var/cache/apt/archives  //得到你的 Apt 缓存<br>sudo apt-get clean  //清理 Apt 缓存<br>sudo apt-get autoremove --purge      //删除旧的内核<br>sudo apt install bleachbit  //安装GUI清除工具<br></code></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
+          
+          <category> Linux </category>
           
           <category> Ubuntu </category>
           
@@ -364,14 +378,70 @@
     
     
     <entry>
-      <title>Ubuntu:Ubuntu 20.04下安装宝塔面板</title>
-      <link href="/posts/853be37/"/>
-      <url>/posts/853be37/</url>
+      <title>Ubuntu系列之Ubuntu 20.04安装常用工具</title>
+      <link href="/posts/feb82284/"/>
+      <url>/posts/feb82284/</url>
       
-        <content type="html"><![CDATA[<!-- TOC --><ul><li><a href="#%E4%B8%80%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94">一、安装宝塔</a></li><li><a href="#%E4%BA%8C%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">二、宝塔面板管理常用命令</a></li></ul><!-- /TOC --><h3 id="一、安装宝塔"><a href="#一、安装宝塔" class="headerlink" title="一、安装宝塔"></a>一、安装宝塔</h3><p><a href="https://www.bt.cn/bbs/thread-19376-1-1.html">安装宝塔</a><br>我使用的是Ubuntu系统,在命令行输入如下的连接：<br>(其他的系统参考安装宝塔的链接)</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget -O install.sh http:<span class="hljs-regexp">//</span>download.bt.cn<span class="hljs-regexp">/install/i</span>nstall-ubuntu_6.<span class="hljs-number">0</span>.sh &amp;&amp; sudo bash install.sh<br></code></pre></td></tr></table></figure><h3 id="二、宝塔面板管理常用命令"><a href="#二、宝塔面板管理常用命令" class="headerlink" title="二、宝塔面板管理常用命令"></a>二、<a href="https://www.bt.cn/btcode.html">宝塔面板管理常用命令</a></h3><p>在root用户下，输入以下命令：</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs groovy">bt <span class="hljs-comment">//宝塔工具箱</span><br><span class="hljs-regexp">/etc/</span>init.d<span class="hljs-regexp">/bt stop  /</span>/停止<br><span class="hljs-regexp">/etc/</span>init.d<span class="hljs-regexp">/bt start  /</span>/启动<br><span class="hljs-regexp">/etc/</span>init.d<span class="hljs-regexp">/bt restart /</span>/重启<br><span class="hljs-regexp">/etc/</span>init.d<span class="hljs-regexp">/bt stop &amp;&amp; chkconfig --del bt &amp;&amp; rm -f /</span>etc<span class="hljs-regexp">/init.d/</span>bt &amp;&amp; rm -rf <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel /</span>/卸载<br>cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/port.pl  /</span>/ 查看当前面板端口<br></code></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>在我们使用Linux时，需要安装一个必备的工具，但是有时候又记不住命令，一条一条的安装太麻烦了。那有没有什么方式可以方便的安装。使用linux的都知道使用<code>make</code>来构建和管理自己的工程。<br>至于有关Makefile的详细学习可以参考其他文章，此处不作介绍。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><code class="hljs shell">install:<br>sudo apt-get update #更新软件列表<br>sudo apt-get upgrade #更新软件<br>sudo apt-get install aptitude #安装另外一个与apt-get功能相近的下载工具<br>sudo apt-get install rpm #安装Centos的rpm安装包<br>sudo apt-get install net-tools #网络工具 ifconfig<br>sudo apt-get install htop #htop是top的升级版,允许用户监视系统上运行的进程<br>sudo apt-get install ncdu #ncdu命令是对传统du命令功能上的增强<br>sudo apt-get install rar   #解压工具 <br>sudo apt-get install tree  #以树形状显示当前文件和目录<br>sudo apt-get install lrzsz #上传文件  #sz下载，rz上传<br><br>sudo apt-get install vim   #vim编译器<br>sudo apt-get install gcc<br>sudo apt-get install g++<br>sudo apt-get install gdb  #gdb调试器<br>sudo apt-get install make <br><br>sudo apt-get install cloc #代码量统计工具<br><br>sudo apt-get install openssh-server #安装ssh服务器，启动服务sudo systemctl start ssh<br>ftp:<br>sudo apt-get install vsftpd<br>sudo apt-get install lftp<br>sudo apt-get install openssh-server #安装ssh服务器（否则无法使用ssh），启动服务sudo systemctl start ssh<br>sudo apt-get install nfs-kernel-server<br>software:<br>sudo apt-get install flameshot #截图工具 设置-&gt;键盘快捷键中添加<br>sudo apt-get install vlc #播放器<br><span class="hljs-meta">#</span><span class="bash">apt-cache policy wine <span class="hljs-comment"># 查看最新版本</span></span><br>sudo apt-get install wine #安装默认的wine<br>mysqll:<br><span class="hljs-meta">#</span><span class="bash">Ubuntu 20.04 源仓库中最新的 MySQL 版本号是 MySQL 8.0</span><br>sudo apt install mysql-server<br>sudo systemctl status mysql #想要验证 MySQL 服务器正在运行<br><span class="hljs-meta">#</span><span class="bash">sudo mysql_secure_installation  <span class="hljs-comment">#MySQL 安装文件附带了一个名为mysql_secure_installation的脚本，它允许你很容易地提高数据库服务器的安全性。</span></span><br>mysql-5.7:<br><span class="hljs-meta">#</span><span class="bash"> 安装mysql5.7服务端</span><br>sudo apt-get install mysql-server-5.7<br><span class="hljs-meta">#</span><span class="bash"> 安装mysql5.7客户端</span><br>sudo apt-get install mysql-client-5.7<br><span class="hljs-meta">#</span><span class="bash"> 使用c/c++等语言操作mysql的动态链接库，如果不需要可不安装</span><br>sudo apt install libmysqlclient-dev<br><span class="hljs-meta">#</span><span class="bash">ubuntu安装MySQL的可视化管理工具</span><br>sudo apt-get install mysql-workbench<br>mysql-5.7-remove:<br><span class="hljs-meta">#</span><span class="bash"> 卸载mysql：</span><br><span class="hljs-meta">#</span><span class="bash">sudo apt-get autoremove mysql* --purge</span><br>sudo apt-get remove mysql-server<br>sudo apt-get remove mysql-common<br><span class="hljs-meta">#</span><span class="bash"> 清理残留数据</span><br>sudo dpkg -l |grep mysql|awk &#x27;&#123;print $2&#125;&#x27; |sudo xargs dpkg -P<br>sudo rm -rf /etc/mysql/<br>sudo rm -rf /var/lib/mysql<br><span class="hljs-meta">#</span><span class="bash"> 检查是否删除完毕</span><br>whereis mysql<br>sudo find / -name mysql<br>git:<br>sudo apt-get install git<br>git --version #查看git的版本<br>git config --global user.name &quot;Aurora811&quot; #配置个人的用户名<br>git config --global user.email 15029502113@163.com #配置个人的邮箱地址<br>git config --global user.name  <br>git config --global user.email<br>git config --list #查看已有的配置信息<br>svnn:<br>sudo apt-get install subversion #安装svn<br>svn --version<br>clean:<br>sudo apt-get clean #清理所有安装包<br>remove:<br>sudo apt-get remove tree<br>wan:<br>sudo apt-get install sl #跑火车,使用时sl<br>sudo apt-get install libaa-bin #在终端黑色界面上看到火..,使用aafire<br>sudo apt-get install fortune #输出一句话<br>sudo apt-get install cowsay #用ASCII字符串打印动物,使用coway www.zhiguoxin.cn<br>sudo apt-get install cmatrix #有黑客帝国效果,使用cmatrix<br>sudo apt-get install figlet #艺术字生成器 使用figlet fuck you <br>sudo apt-get install toilet #使用 toilet i love you<br>sudo apt-get install oneko #桌面会生成一个喵星人，使用oneko<br>sudo apt-get install screenfetch #查看系统，主题信息,使用screenfetch<br>sudo apt-get install linuxlogo #显示linux版本logo图片系统信息 使用linux_logo<br></code></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
+          
+          <category> Linux </category>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu系列之Ubuntu 20.04下安装常用软件</title>
+      <link href="/posts/6b694b97/"/>
+      <url>/posts/6b694b97/</url>
+      
+        <content type="html"><![CDATA[<!-- TOC --><ul><li><a href="#%E4%B8%80%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6">一、安装常用的软件</a><ul><li><a href="#11vs-code%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E5%99%A8">1.1VS code代码编译器</a></li><li><a href="#2dbeaver%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6">2、DBeaver数据库管理软件</a></li><li><a href="#3utools%E5%B7%A5%E5%85%B7">3、utools工具</a></li><li><a href="#4wps">4、wps</a></li><li><a href="#5%E7%81%AB%E7%84%B0%E6%88%AA%E5%9B%BEflameshot">5、火焰截图(flameshot)</a></li><li><a href="#6google">6、Google</a></li><li><a href="#7%E6%92%AD%E6%94%BE%E5%99%A8vlc">7、播放器(vlc)</a></li></ul></li></ul><!-- /TOC --><p>安装一些Ubuntu桌面系统常用的软件</p><h1 id="一、安装常用的软件"><a href="#一、安装常用的软件" class="headerlink" title="一、安装常用的软件"></a>一、安装常用的软件</h1><h2 id="1-1VS-code代码编译器"><a href="#1-1VS-code代码编译器" class="headerlink" title="1.1VS code代码编译器"></a>1.1VS code代码编译器</h2><blockquote><p>注意：不要在Ubuntu自带的商店安装，可能出现无法输入中文的bug。建议直接在官方下载<code>deb</code>包</p></blockquote><p>从<a href="https://code.visualstudio.com/Download">官网下载界面</a>下载deb包，并安装直接执行下面命令。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo dpkg -i code_1.62.3-1637137107_amd64.deb<br></code></pre></td></tr></table></figure><h2 id="2、DBeaver数据库管理软件"><a href="#2、DBeaver数据库管理软件" class="headerlink" title="2、DBeaver数据库管理软件"></a>2、DBeaver数据库管理软件</h2><p>从<a href="https://dbeaver.io/download/">官网下载页面</a>下载 <code>DBeaver Community Edition</code> 的 <code>deb</code> 包，并安装直接执行下面命令。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo dpkg -i dbeaver-ce_21.3.0_amd64.deb<br></code></pre></td></tr></table></figure><h2 id="3、utools工具"><a href="#3、utools工具" class="headerlink" title="3、utools工具"></a>3、utools工具</h2><p>从<a href="https://u.tools/">官网下载页面</a>下载deb包，并安装直接执行下面命令。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo dpkg -i utools_1.3.3_amd64.deb<br></code></pre></td></tr></table></figure><h2 id="4、wps"><a href="#4、wps" class="headerlink" title="4、wps"></a>4、wps</h2><p>从<a href="https://linux.wps.cn/">官网下载网页</a>下载deb包，并安装<br>安装完成后打开wps,提示系统缺失字体<br>寻找一台 Windows 电脑，将 C:\Windows\Fonts 中对应的字体复制到 Ubuntu 的 /usr/share/fonts/wps-office/ 目录下，重新启动 WPS 即可。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo dpkg -i wps-office_11.1.0.10702_amd64.deb<br></code></pre></td></tr></table></figure><h2 id="5、火焰截图-flameshot"><a href="#5、火焰截图-flameshot" class="headerlink" title="5、火焰截图(flameshot)"></a>5、火焰截图(flameshot)</h2><p><code>sudo apt-get install flameshot</code></p><h2 id="6、Google"><a href="#6、Google" class="headerlink" title="6、Google"></a>6、Google</h2><p>在<a href="https://www.google.com/intl/zh-CN/chrome/">官网下载网页</a>下载deb包，并安装直接执行下面命令。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">直接使用命令下载安装</span><br>wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb<br>sudo apt-get install ./google-chrome-stable_current_amd64.deb<br><span class="hljs-meta">#</span><span class="bash">也可以使用dpkg命令进行安装</span><br>sudo dpkg -i google-chrome-stable_current_amd64.deb<br>rm google-chrome-stable_current_amd64.deb  //删除安装包<br></code></pre></td></tr></table></figure><h2 id="7、播放器-vlc"><a href="#7、播放器-vlc" class="headerlink" title="7、播放器(vlc)"></a>7、播放器(vlc)</h2><p><code>sudo apt-get install vlc</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu系列之Ubuntu 20.04下安装宝塔面板</title>
+      <link href="/posts/4937fca0/"/>
+      <url>/posts/4937fca0/</url>
+      
+        <content type="html"><![CDATA[<!-- TOC --><ul><li><a href="#%E4%B8%80%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94">一、安装宝塔</a></li><li><a href="#%E4%BA%8C%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">二、宝塔面板管理常用命令</a></li></ul><!-- /TOC --><h1 id="一、安装宝塔"><a href="#一、安装宝塔" class="headerlink" title="一、安装宝塔"></a>一、安装宝塔</h1><p><a href="https://www.bt.cn/bbs/thread-19376-1-1.html">安装宝塔</a><br>我使用的是Ubuntu系统,在命令行输入如下的连接：<br>(其他的系统参考安装宝塔的链接)</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget -O install.sh http:<span class="hljs-regexp">//</span>download.bt.cn<span class="hljs-regexp">/install/i</span>nstall-ubuntu_6.<span class="hljs-number">0</span>.sh &amp;&amp; sudo bash install.sh<br></code></pre></td></tr></table></figure><h1 id="二、宝塔面板管理常用命令"><a href="#二、宝塔面板管理常用命令" class="headerlink" title="二、宝塔面板管理常用命令"></a>二、<a href="https://www.bt.cn/btcode.html">宝塔面板管理常用命令</a></h1><p>在root用户下，输入以下命令：</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs groovy">sudo bt <span class="hljs-comment">//宝塔工具箱</span><br><span class="hljs-regexp">/etc/</span>init.d<span class="hljs-regexp">/bt stop  /</span>/停止<br><span class="hljs-regexp">/etc/</span>init.d<span class="hljs-regexp">/bt start  /</span>/启动<br><span class="hljs-regexp">/etc/</span>init.d<span class="hljs-regexp">/bt restart /</span>/重启<br><span class="hljs-regexp">/etc/</span>init.d<span class="hljs-regexp">/bt stop &amp;&amp; chkconfig --del bt &amp;&amp; rm -f /</span>etc<span class="hljs-regexp">/init.d/</span>bt &amp;&amp; rm -rf <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel /</span>/卸载<br>cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/panel/</span>data<span class="hljs-regexp">/port.pl  /</span>/ 查看当前面板端口<br></code></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
           
           <category> Ubuntu </category>
           
@@ -416,14 +486,16 @@
     
     
     <entry>
-      <title>Ubuntu:Ubuntu 20.04版本更新软件源为国内源</title>
-      <link href="/posts/50c6294/"/>
-      <url>/posts/50c6294/</url>
+      <title>Ubuntu系列之Ubuntu 20.04版本更新软件源为国内源</title>
+      <link href="/posts/828a1a67/"/>
+      <url>/posts/828a1a67/</url>
       
-        <content type="html"><![CDATA[<h4 id="一、ubuntu-20-04版本更新软件源为国内源（清华、网易、阿里云等）"><a href="#一、ubuntu-20-04版本更新软件源为国内源（清华、网易、阿里云等）" class="headerlink" title="一、ubuntu 20.04版本更新软件源为国内源（清华、网易、阿里云等）"></a>一、ubuntu 20.04版本更新软件源为国内源（清华、网易、阿里云等）</h4><h5 id="二、备份配置文件"><a href="#二、备份配置文件" class="headerlink" title="二、备份配置文件"></a>二、备份配置文件</h5><p><code>sudo cp /etc/apt/sources.list  /etc/apt/sources.list.bak</code></p><h5 id="三、编辑配置文件"><a href="#三、编辑配置文件" class="headerlink" title="三、编辑配置文件"></a>三、编辑配置文件</h5><p><code>sudo  vim /etc/apt/sources.list</code> </p><blockquote><p>注：阿里云镜像源、清华大学镜像源、网易镜像源、中科大镜像源中任选择一个</p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs cpp">#阿里云镜像源<br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><br>#清华大学镜像源<br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><br>#网易镜像源<br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><br>#中科大镜像源<br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse </span><br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse </span><br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br></code></pre></td></tr></table></figure><h5 id="四、更新软件列表与软件"><a href="#四、更新软件列表与软件" class="headerlink" title="四、更新软件列表与软件"></a>四、更新软件列表与软件</h5><p>编译文件完成后，执行下面命令更新</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> update #更新软件列表<br>sudo apt-<span class="hljs-builtin-name">get</span><span class="hljs-built_in"> upgrade </span>#更新软件<br></code></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="一、备份配置文件"><a href="#一、备份配置文件" class="headerlink" title="一、备份配置文件"></a>一、备份配置文件</h1><p><code>sudo cp /etc/apt/sources.list  /etc/apt/sources.list.bak</code></p><h1 id="二、编辑配置文件"><a href="#二、编辑配置文件" class="headerlink" title="二、编辑配置文件"></a>二、编辑配置文件</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo apt-get install vim  <span class="hljs-regexp">//</span>安装vim<br>sudo  vim <span class="hljs-regexp">/etc/</span>apt/sources.list<br></code></pre></td></tr></table></figure><blockquote><p>注：阿里云镜像源、清华大学镜像源、网易镜像源、中科大镜像源中任选择一个</p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs cpp">#阿里云镜像源<br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><br>#清华大学镜像源<br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><br>#网易镜像源<br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb-src http:<span class="hljs-comment">//mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><br>#中科大镜像源<br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse </span><br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse </span><br>deb https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse </span><br>deb-src https:<span class="hljs-comment">//mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br></code></pre></td></tr></table></figure><h1 id="三、更新软件列表与软件"><a href="#三、更新软件列表与软件" class="headerlink" title="三、更新软件列表与软件"></a>三、更新软件列表与软件</h1><p>编译文件完成后，执行下面命令更新</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> update #更新软件列表<br>sudo apt-<span class="hljs-builtin-name">get</span><span class="hljs-built_in"> upgrade </span>#更新软件<br></code></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
+          
+          <category> Linux </category>
           
           <category> Ubuntu </category>
           
@@ -441,14 +513,16 @@
     
     
     <entry>
-      <title>Ubuntu:VMware 14安装Ubuntu 20.04</title>
-      <link href="/posts/5790bb58/"/>
-      <url>/posts/5790bb58/</url>
+      <title>Ubuntu系列之VMware 16安装Ubuntu 20.04</title>
+      <link href="/posts/510b1fc1/"/>
+      <url>/posts/510b1fc1/</url>
       
-        <content type="html"><![CDATA[<h3 id="1、安装VMware-14"><a href="#1、安装VMware-14" class="headerlink" title="1、安装VMware 14"></a>1、安装VMware 14</h3><h3 id="2、安装Ubuntu-20-04"><a href="#2、安装Ubuntu-20-04" class="headerlink" title="2、安装Ubuntu 20.04"></a>2、安装Ubuntu 20.04</h3><h3 id="3、安装VMware-tools"><a href="#3、安装VMware-tools" class="headerlink" title="3、安装VMware tools"></a>3、安装VMware tools</h3>]]></content>
+        <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>记录一下在VMware下安装Ubuntu的过程，以及使用过程。</p><h1 id="二、提前准备"><a href="#二、提前准备" class="headerlink" title="二、提前准备"></a>二、提前准备</h1><ul><li><p>VMware 虚拟机软件</p><p> 这里可以自行选择，建议选择比较高的版本。这里我选择是<code>VMware Workstation 14 Pro </code></p></li><li><p>Ubuntu系统镜像</p><p>这里我选择是<code>ubuntu-20.04.6-desktop-amd64.iso</code>,你也可以选择其他版本的镜像文件，操作过程几乎一样。</p></li></ul><h1 id="三、安装Ubuntu系统到虚拟机"><a href="#三、安装Ubuntu系统到虚拟机" class="headerlink" title="三、安装Ubuntu系统到虚拟机"></a>三、安装Ubuntu系统到虚拟机</h1><h2 id="3-1打开虚拟机软件"><a href="#3-1打开虚拟机软件" class="headerlink" title="3.1打开虚拟机软件"></a>3.1打开虚拟机软件</h2><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705213456.png"></p><h2 id="3-2新建虚拟机"><a href="#3-2新建虚拟机" class="headerlink" title="3.2新建虚拟机"></a>3.2新建虚拟机</h2><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706190912.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706191002.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706191125.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706191325.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706191534.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706191623.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706191757.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706191907.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706191938.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192028.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192107.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192213.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192241.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192313.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192350.png"></p><h2 id="3-2在虚拟中安装Ubuntu系统"><a href="#3-2在虚拟中安装Ubuntu系统" class="headerlink" title="3.2在虚拟中安装Ubuntu系统"></a>3.2在虚拟中安装Ubuntu系统</h2><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192529.png"></p><p>等待加载镜像文件<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192617.png"></p><p>这里可以选择系统的语言这里我选择中文，如下图所示：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192842.png"></p><p>默认无需更改，直接回车<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706192911.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706193120.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706193510.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706193644.png"></p><p>设置系统的名字(Ubuntu)和密码(123456)，如下图所示：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706193845.png"></p><p>等待系统安装<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706194202.png"></p><p>安装完成如下图所示：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706195203.png"></p><p>重启之后进入系统，如下图所示：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706200350.png"></p><h3 id="3-3-配置root权限"><a href="#3-3-配置root权限" class="headerlink" title="3.3 配置root权限"></a>3.3 配置root权限</h3><p>Ubuntu刚安装后，不能在terminal中运行su命令，因为root没有默认密码，需要手动设定.<br>以安装Ubuntu时输入的用户名登陆，该用户在admin组中，有权限给root设定密码.</p><p>给root用户设置密码的具体步骤：</p><ul><li>打开一个terminal，然后输入下面的命令</li></ul><p>　  　<code>sudo passwd root</code></p><p>回车后会让你输入密码和确认密码，这样你的root的密码设置好了.</p><h3 id="3-4-安装VMware-tools"><a href="#3-4-安装VMware-tools" class="headerlink" title="3.4 安装VMware tools"></a>3.4 安装VMware tools</h3><p>安装过程参考<strong>国产系统(一)：Kylin系统搭建与虚拟机安装</strong>中的VMware Tools安装。</p><p>将VMwareTools-10.1.15-6627299.tar.gz复制到桌面上，执行下面命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo tar -xzvf VMwareTools-10.1.15-6627299.tar.gz<br>cd vmware-tools-distrib/<br>sudo ./vmware-install.pl <br></code></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
+          
+          <category> Linux </category>
           
           <category> Ubuntu </category>
           
@@ -504,7 +578,7 @@
           
           <category> 杂项 </category>
           
-          <category> 校验 </category>
+          <category> CRC校验 </category>
           
       </categories>
       
@@ -531,7 +605,7 @@
           
           <category> 杂项 </category>
           
-          <category> CAN </category>
+          <category> CAN总线 </category>
           
       </categories>
       
@@ -610,7 +684,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -637,7 +711,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -664,7 +738,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -691,7 +765,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -718,7 +792,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -745,7 +819,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -772,34 +846,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
-          
-          <category> Qt </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Qt </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Qt软件打包与发布(windeployqt工具）</title>
-      <link href="/posts/93b41f4f/"/>
-      <url>/posts/93b41f4f/</url>
-      
-        <content type="html"><![CDATA[<p>使用官方自带的<code>windeployqt</code>工具来打包我们的项目。</p><h1 id="1-查看windeloyqt工具在哪"><a href="#1-查看windeloyqt工具在哪" class="headerlink" title="1.查看windeloyqt工具在哪"></a>1.查看<code>windeloyqt</code>工具在哪</h1><p>我的Qt安装在D盘，所以我知道到的目录在<code>D:\Qt\Qt5.8.0\5.8\mingw53_32\bin</code>,同理你也可以自己去找自己的Qt安装目录</p><h1 id="2-生成项目的release文件"><a href="#2-生成项目的release文件" class="headerlink" title="2.生成项目的release文件"></a>2.生成项目的<code>release</code>文件</h1><p>打开你的项目，选择<code>release</code>版本，点击运行，就能够生成项目的<code>release</code>版本的可执行程序了。</p><h1 id="3-打开Qt的控制台，打包"><a href="#3-打开Qt的控制台，打包" class="headerlink" title="3.打开Qt的控制台，打包"></a>3.打开Qt的控制台，打包</h1><blockquote><p>注意是Qt的控制台，不是dos界面。</p></blockquote><p><img src="https://note.youdao.com/yws/api/personal/file/DF8E8FBD58B34012BDFA99EBAA33E6FD?method=download&shareKey=8ac24e1553be865a0fc0cdba6c1205d6" alt="qt的控制台"></p><p>将你生成的Release版的可执行程序移动到一个新的文件夹中，切换到当前的目录下，接下来使用<code>windeployqt 程序名</code>命令，就可以对程序进行打包操作，如图：</p><p><img src="https://note.youdao.com/yws/api/personal/file/0CDF5BA8B10248AE8DA0BA62FBF93417?method=download&shareKey=c215cc7c7ac20720a23f5b0605f86fa8" alt="windeployqt命令"></p><h1 id="4-软件更换图标"><a href="#4-软件更换图标" class="headerlink" title="4.软件更换图标"></a>4.软件更换图标</h1><p>QT是跨平台的程序设计库，程序往往想要有一个好看的图标，方法如下：</p><ol><li>准备个ICO图标。例如：<code>first.ico</code></li><li>在.pro文件（项目文件）里写：<code>RC_ICONS = first.ico</code></li><li>保存，重新编译程序</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -826,7 +873,61 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
+          
+          <category> Qt </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Qt </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Qt软件打包与发布(windeployqt工具）</title>
+      <link href="/posts/93b41f4f/"/>
+      <url>/posts/93b41f4f/</url>
+      
+        <content type="html"><![CDATA[<p>使用Qt官方自带的<code>windeployqt</code>工具来打包我们的项目。</p><h1 id="1-查看windeloyqt工具在哪"><a href="#1-查看windeloyqt工具在哪" class="headerlink" title="1.查看windeloyqt工具在哪"></a>1.查看<code>windeloyqt</code>工具在哪</h1><p>我的Qt安装在D盘，所以我知道到的目录在<code>D:\Qt\Qt5.8.0\5.8\mingw53_32\bin</code>,同理你也可以自己去找自己的Qt安装目录</p><h1 id="2-生成项目的release文件"><a href="#2-生成项目的release文件" class="headerlink" title="2.生成项目的release文件"></a>2.生成项目的<code>release</code>文件</h1><p>打开你的项目，选择<code>release</code>版本，点击运行，就能够生成项目的<code>release</code>版本的可执行程序了。</p><h1 id="3-打开Qt的控制台，打包"><a href="#3-打开Qt的控制台，打包" class="headerlink" title="3.打开Qt的控制台，打包"></a>3.打开Qt的控制台，打包</h1><blockquote><p>注意是Qt的控制台，不是dos界面。</p></blockquote><p><img src="https://note.youdao.com/yws/api/personal/file/DF8E8FBD58B34012BDFA99EBAA33E6FD?method=download&shareKey=8ac24e1553be865a0fc0cdba6c1205d6" alt="qt的控制台"></p><p>将你生成的Release版的可执行程序移动到一个新的文件夹中，切换到当前的目录下，接下来使用<code>windeployqt 程序名</code>命令，就可以对程序进行打包操作，如图：</p><p><img src="https://note.youdao.com/yws/api/personal/file/0CDF5BA8B10248AE8DA0BA62FBF93417?method=download&shareKey=c215cc7c7ac20720a23f5b0605f86fa8" alt="windeployqt命令"></p><h1 id="4-软件更换图标"><a href="#4-软件更换图标" class="headerlink" title="4.软件更换图标"></a>4.软件更换图标</h1><p>QT是跨平台的程序设计库，程序往往想要有一个好看的图标，方法如下：</p><ol><li>准备个ICO图标。例如：<code>first.ico</code></li><li>在.pro文件（项目文件）里写：<code>RC_ICONS = first.ico</code></li><li>保存，重新编译程序</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用程序开发框架 </category>
+          
+          <category> Qt </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Qt </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C++ Qt框架 其他 嵌入式Qt移植</title>
+      <link href="/posts/c74d8513/"/>
+      <url>/posts/c74d8513/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0、Qt官方在那些平台-系统有支持？"><a href="#0、Qt官方在那些平台-系统有支持？" class="headerlink" title="0、Qt官方在那些平台/系统有支持？"></a>0、Qt官方在那些平台/系统有支持？</h1><blockquote><p>Windows、Linux、Mac</p></blockquote><h1 id="1、为什么要进行Qt移植"><a href="#1、为什么要进行Qt移植" class="headerlink" title="1、为什么要进行Qt移植"></a>1、为什么要进行Qt移植</h1><ul><li>直制系统，如BusyBox简易系统，希望能运行Qt  </li><li>厂家提供的Qt库太大，太全，占空间  </li><li>版本升级，想用其它好用的Qt版本</li></ul><h1 id="2、嵌入式Qt移植有哪几种方法"><a href="#2、嵌入式Qt移植有哪几种方法" class="headerlink" title="2、嵌入式Qt移植有哪几种方法"></a>2、嵌入式Qt移植有哪几种方法</h1><h2 id="2-1-编译Qt源码，得到Qt库文件，部署到嵌入式系统中"><a href="#2-1-编译Qt源码，得到Qt库文件，部署到嵌入式系统中" class="headerlink" title="2.1 编译Qt源码，得到Qt库文件，部署到嵌入式系统中"></a>2.1 编译Qt源码，得到Qt库文件，部署到嵌入式系统中</h2><p>查看开发板中是否已经部署Qt<code>sudo ls /usr/lib/libQt5*</code></p><h2 id="2-2-利用开源的嵌入式Linux系统自动构建框架Buildroot或者Yocto"><a href="#2-2-利用开源的嵌入式Linux系统自动构建框架Buildroot或者Yocto" class="headerlink" title="2.2 利用开源的嵌入式Linux系统自动构建框架Buildroot或者Yocto"></a>2.2 利用开源的嵌入式<code>Linux</code>系统自动构建框架<code>Buildroot</code>或者<code>Yocto</code></h2><h1 id="3、嵌入式Qt移植方法对比说明"><a href="#3、嵌入式Qt移植方法对比说明" class="headerlink" title="3、嵌入式Qt移植方法对比说明"></a>3、嵌入式Qt移植方法对比说明</h1><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230701221428.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用程序开发框架 </category>
           
           <category> Qt </category>
           
@@ -952,7 +1053,34 @@
     
     
     <entry>
-      <title>CentOS7 使用yum命令安装出现错误提示：Loaded plugins fastestmirror</title>
+      <title>国产系统(二)：Kylin系统安装Qt5.12.2开发环境</title>
+      <link href="/posts/49470149/"/>
+      <url>/posts/49470149/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> Kylin </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Debian </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOS7 命令错误</title>
       <link href="/posts/8c9e77c7/"/>
       <url>/posts/8c9e77c7/</url>
       
@@ -971,6 +1099,33 @@
         <tags>
             
             <tag> CentOS7 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>国产系统(一)：Kylin系统搭建与虚拟机安装</title>
+      <link href="/posts/af1a820c/"/>
+      <url>/posts/af1a820c/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>开发国产麒麟系统应用，需要用到银河麒麟系统，本次记录下虚拟机安装麒麟虚拟机的流程，这里选择安装到虚拟机是为了方便。</p><h1 id="二、提前准备"><a href="#二、提前准备" class="headerlink" title="二、提前准备"></a>二、提前准备</h1><ul><li><p>VMware 虚拟机软件</p><p> 这里可以自行选择，建议选择比较高的版本。这里我选择是<code>VMware Workstation 14 Pro </code></p></li><li><p>Kylin镜像</p><p>这里选用的是Kylin-4.0.2,镜像名称如下：</p><p>  <code>  Kylin-4.0.2-desktop-sp2_Community-20171127-x86_64.iso  </code><br>从镜像名称就可以看出为桌面系统，发布时间为2017年11月27日，x86平台。</p><p>  下载地址：<a href="thunder://QUFodHRwczovL21pcnJvcnMuaHVhd2VpY2xvdWQuY29tL3VidW50dWt5bGluL0t5bGluLTQuMC4yLWRlc2t0b3Atc3AyX0NvbW11bml0eS0yMDE3MTEyNy14ODZfNjQuaXNvWlo=/">Kylin-4.0.2-desktop-sp2</a><br>  直接打开迅雷将链接复制进去。</p></li></ul><h1 id="三、安装银河麒麟到虚拟机"><a href="#三、安装银河麒麟到虚拟机" class="headerlink" title="三、安装银河麒麟到虚拟机"></a>三、安装银河麒麟到虚拟机</h1><h2 id="3-1打开虚拟机软件"><a href="#3-1打开虚拟机软件" class="headerlink" title="3.1打开虚拟机软件"></a>3.1打开虚拟机软件</h2><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705213456.png"></p><h2 id="3-2新建虚拟机"><a href="#3-2新建虚拟机" class="headerlink" title="3.2新建虚拟机"></a>3.2新建虚拟机</h2><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705213644.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705214116.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705214257.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705214410.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705214623.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705214732.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705214830.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215014.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215100.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215138.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215224.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215340.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215419.png"></p><p>点击完成，则创建成功。<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215459.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215608.png"></p><h2 id="3-3在虚拟中安装Kylin银河麒麟系统"><a href="#3-3在虚拟中安装Kylin银河麒麟系统" class="headerlink" title="3.3在虚拟中安装Kylin银河麒麟系统"></a>3.3在虚拟中安装Kylin银河麒麟系统</h2><p>这里要将虚拟机改为从镜像启动，如下图：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215753.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705215857.png"></p><p>我们在VMware中安装虚拟机的过程中，安装了一个空白磁盘。</p><p>然后开启虚拟机，如下图所示：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705220121.png"></p><p>下图为成功启动后镜像视图：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705220915.png"></p><p>下面进行银河麒麟系统选择配置安装，这里可以选择英文与中文,这里我选择中文,如下图：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705221123.png"></p><p>这里选择从光盘安装：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705221312.png"></p><p>这里选择快速安装Kylin,等待你对Linux有深入了解后可以可以选择高级安装<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705221416.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705221635.png"></p><p>进行系统名和密码设置<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705221829.png"></p><p>自动安装程序，等待安装。<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705222027.png"></p><p>安装完成如下图所示，直接进行重启。<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705222152.png"></p><h2 id="3-4安装完成"><a href="#3-4安装完成" class="headerlink" title="3.4安装完成"></a>3.4安装完成</h2><p>重启系统，进入系统，如下图：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705222808.png"></p><p>注意：这里无法全屏需要安装VMware Tools。</p><h2 id="3-5-安装VMware-Tools"><a href="#3-5-安装VMware-Tools" class="headerlink" title="3.5 安装VMware Tools"></a>3.5 安装VMware Tools</h2><h3 id="3-5-1-安装VMware-Tools过程"><a href="#3-5-1-安装VMware-Tools过程" class="headerlink" title="3.5.1 安装VMware Tools过程"></a>3.5.1 安装VMware Tools过程</h3><p>点击VMware虚拟机，虚拟机菜单选择安装VMware Tools<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705223305.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705223121.png"></p><p>将VMwareTools-10.1.15-6627299.tar.gz复制到桌面上，执行下面命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo tar -xzvf VMwareTools-10.1.15-6627299.tar.gz<br>cd vmware-tools-distrib/<br>sudo ./vmware-install.pl <br></code></pre></td></tr></table></figure><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705225051.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705225234.png"></p><p>安装完成如下图所示：</p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705225404.png"></p><p>最后重启虚拟机，就可以全屏显示，同时也可以将虚拟内的文件复制到外面<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705225619.png"></p><h3 id="3-5-2-配置root权限"><a href="#3-5-2-配置root权限" class="headerlink" title="3.5.2 配置root权限"></a>3.5.2 配置root权限</h3><p>Kylin刚安装后，不能在terminal中运行su命令，因为root没有默认密码，需要手动设定.<br>以安装Kylin时输入的用户名登陆，该用户在admin组中，有权限给root设定密码.</p><p>给root用户设置密码的具体步骤：</p><ul><li>打开一个terminal，然后输入下面的命令</li></ul><p>　  　<code>sudo passwd root</code></p><p>回车后会让你输入密码和确认密码，这样你的root的密码设置好了.</p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705224303.png"></p><h1 id="四、自带软件检查"><a href="#四、自带软件检查" class="headerlink" title="四、自带软件检查"></a>四、自带软件检查</h1><p>自带中文输入法,自带<code>Qt4.8.7</code> <code>Eclipse 3.8</code>，<code>gcc</code>,<code>g++</code>,<code>gdb</code>，<code>make</code>。可以快速使用</p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230705230831.png"></p><blockquote></blockquote><ul><li>Qt4.8.7是Qt4的终结版本，是Qt4系列版本中最稳定最经典的（很多嵌入式板子还是用Qt4.8），其实该版本是和Qt5.5差不多时间发布的。</li><li>Qt5.12.3是最后提供mysql数据库插件的版本，往后的版本需要自行编译对应的mysql数据库插件，官方安装包不再提供。</li><li>Qt5.14.2是最后提供二进制安装包的版本，后面的版本都需要在线安装</li></ul><h1 id="五、配置agt-get网络源"><a href="#五、配置agt-get网络源" class="headerlink" title="五、配置agt-get网络源"></a>五、配置agt-get网络源</h1><p>银河麒麟4.0.2网络源地址</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">4.0.2桌面版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2-desktop main restricted universe multiverse<br><span class="hljs-meta">#</span><span class="bash">4.0.2-sp1桌面版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp1-desktop main restricted universe multiverse<br><span class="hljs-meta">#</span><span class="bash">4.0.2-sp2桌面版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp2-desktop main restricted universe multiverse<br><span class="hljs-meta">#</span><span class="bash">4.0.2服务器版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2-server main restricted universe multiverse<br><span class="hljs-meta">#</span><span class="bash">4.0.2-sp1服务器版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp1-server main restricted universe multiverse<br><span class="hljs-meta">#</span><span class="bash">4.0.2-sp2服务器版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp2-server main restricted universe multiverse<br><span class="hljs-meta">#</span><span class="bash">4.0.2-sp2 FT2000+服务器版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp2-server-ft2000 main restricted universe multiverse<br><span class="hljs-meta">#</span><span class="bash">4.0.2-sp3桌面版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp3-desktop main restricted universe multiverse<br><span class="hljs-meta">#</span><span class="bash">4.0.2-sp3服务器版本:</span><br>deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp3-server main restricted universe multiverse<br></code></pre></td></tr></table></figure><h2 id="5-1-命令配置"><a href="#5-1-命令配置" class="headerlink" title="5.1 命令配置"></a>5.1 命令配置</h2><p>在系统的/etc/apt/sources.list文件中，根据不同版本填入以下内容。</p><p>编辑sources.list文件根据不同版本选择网络源地址，操作命令如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo vim /etc/apt/sources.list<br>sudo apt-get update<br>sudo apt-get upgrade<br></code></pre></td></tr></table></figure><p>操作过程如下图所示：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706163313.png"></p><h2 id="5-2-图形界面配置"><a href="#5-2-图形界面配置" class="headerlink" title="5.2 图形界面配置"></a>5.2 图形界面配置</h2><p>在界面直接选择 开始==》所有软件==》麒麟软件中心<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706162427.png"></p><p>在麒麟软件中心进行操作，先删除原来网络源，添加新的软件源，如下图所示：<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706162620.png"></p><p><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706162745.png"></p><p>点击更新软件源后等待更新，更新完成后会提示<br><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/20230706162928.png"></p><p>参考链接：</p><ul><li><a href="https://www.oschina.net/news/91680/ubuntu-kylin-yinhe-4-0-2-sp2-released">银河麒麟操作系统社区版 4.0.2-SP2 正式发布信息</a></li><li><a href="http://www.520xiazai.com/soft/Kylin-V4-Desktop.html">银河麒麟操作系统(Kylin)V4 SP1/SP2 桌面版下载</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> Kylin </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Debian </tag>
             
         </tags>
       
@@ -1015,6 +1170,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> C/C++ </category>
           
       </categories>
@@ -1039,6 +1196,8 @@
       
       
       <categories>
+          
+          <category> 语言基础 </category>
           
           <category> C/C++ </category>
           
@@ -1110,7 +1269,7 @@
     
     
     <entry>
-      <title>MySQL:1、Windows安装MySQL 5.7</title>
+      <title>MySQL之在Windows安装MySQL 5.7</title>
       <link href="/posts/34d7ef05/"/>
       <url>/posts/34d7ef05/</url>
       
@@ -1171,7 +1330,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> MFC </category>
           
@@ -1198,7 +1357,7 @@
       
       <categories>
           
-          <category> C++应用程序开发框架 </category>
+          <category> 应用程序开发框架 </category>
           
           <category> MFC </category>
           
@@ -1252,6 +1411,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> C/C++ </category>
           
       </categories>
@@ -1276,6 +1437,8 @@
       
       
       <categories>
+          
+          <category> 语言基础 </category>
           
           <category> C/C++ </category>
           
@@ -1320,7 +1483,7 @@
     
     
     <entry>
-      <title>Linux:命令find搜索</title>
+      <title>Linux  1、find搜索</title>
       <link href="/posts/2f140c32/"/>
       <url>/posts/2f140c32/</url>
       
@@ -1345,9 +1508,9 @@
     
     
     <entry>
-      <title>Linux:用户身份与文件权限</title>
-      <link href="/posts/f52cd145/"/>
-      <url>/posts/f52cd145/</url>
+      <title>Linux  2、用户身份与文件权限</title>
+      <link href="/posts/5a38ee9/"/>
+      <url>/posts/5a38ee9/</url>
       
         <content type="html"><![CDATA[<h1 id="1-用户管理"><a href="#1-用户管理" class="headerlink" title="1.用户管理"></a>1.用户管理</h1><ol><li>创建用户<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo adduser + 用户名（luffy）<br>sudo useradd -s /bin/bash -g itcast -d /home/itcast -m itcast<br>-s 指定新用户登陆时shell类型<br>-g 指定所属组，该组必须已经存在<br>-d 用户家目录<br>-m 用户家目录不存在时，自动创建该目录<br></code></pre></td></tr></table></figure></li><li>设置用户组<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo groupadd itcast<br></code></pre></td></tr></table></figure></li><li>删除用户<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo deluser + 用户名（luffy）<br>sudo userdel -r itcast<br>选项 -r 的作用是把用户的主目录一起删除<br></code></pre></td></tr></table></figure></li><li>切换用户<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">su + 用户名（sanji）<br></code></pre></td></tr></table></figure></li><li>root用户<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo su<br></code></pre></td></tr></table></figure></li><li>设置密码<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo passwd + 用户名（luffy）<br>sudo passwd root<br>sudo passwd<br>设置root密码<br></code></pre></td></tr></table></figure></li><li>退出登录用户<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">exit<br></code></pre></td></tr></table></figure></li></ol>]]></content>
       
@@ -1370,7 +1533,7 @@
     
     
     <entry>
-      <title>Linux:gdb调试的使用</title>
+      <title>Linux  4、gdb调试的使用</title>
       <link href="/posts/ff09d5df/"/>
       <url>/posts/ff09d5df/</url>
       
@@ -1386,7 +1549,7 @@
       
         <tags>
             
-            <tag> gdb </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1395,7 +1558,7 @@
     
     
     <entry>
-      <title>Linux:Vim的使用与配置(初学必看)</title>
+      <title>Linux  5、Vim的使用与配置(初学必看)</title>
       <link href="/posts/ff09d5df/"/>
       <url>/posts/ff09d5df/</url>
       
@@ -1411,7 +1574,7 @@
       
         <tags>
             
-            <tag> vim </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1420,7 +1583,7 @@
     
     
     <entry>
-      <title>Linux:gcc编译器</title>
+      <title>Linux  6、gcc编译器</title>
       <link href="/posts/ff09d5df/"/>
       <url>/posts/ff09d5df/</url>
       
@@ -1436,7 +1599,7 @@
       
         <tags>
             
-            <tag> gcc </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1481,6 +1644,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> C/C++ </category>
           
       </categories>
@@ -1506,6 +1671,8 @@
       
       <categories>
           
+          <category> 语言基础 </category>
+          
           <category> C/C++ </category>
           
       </categories>
@@ -1522,7 +1689,7 @@
     
     
     <entry>
-      <title>Linux:静态库和动态库的制作</title>
+      <title>Linux  3、静态库和动态库的制作</title>
       <link href="/posts/d2f405bd/"/>
       <url>/posts/d2f405bd/</url>
       
@@ -1538,7 +1705,7 @@
       
         <tags>
             
-            <tag> 静态库与动态库 </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1547,16 +1714,14 @@
     
     
     <entry>
-      <title>在Ubuntu下使用Docker安装Ubuntu、CetOS和MySQL镜像及其简单的使用</title>
-      <link href="/posts/fbc0d87d/"/>
-      <url>/posts/fbc0d87d/</url>
+      <title>Docker  3、安装Ubuntu、CetOS和MySQL镜像及其简单的使用.md</title>
+      <link href="/posts/32edcdd9/"/>
+      <url>/posts/32edcdd9/</url>
       
         <content type="html"><![CDATA[<blockquote><p>确保你的系统下安装有Docker,切换到<code>root</code>账户下，如果是普通用户，下面的指令操作需要在指令前添加<code>sudo</code>.</p></blockquote><h3 id="1-Docker的安装实例"><a href="#1-Docker的安装实例" class="headerlink" title="1.Docker的安装实例"></a>1.Docker的安装实例</h3><h4 id="1-1Docker安装Ubuntu"><a href="#1-1Docker安装Ubuntu" class="headerlink" title="1.1Docker安装Ubuntu"></a>1.1Docker安装Ubuntu</h4> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker search ubuntu  <span class="hljs-regexp">//</span>搜索ubuntu镜像<br>docker pull ubuntu <span class="hljs-regexp">//</span>拉取最新版的 Ubuntu 镜像<br>docker images  <span class="hljs-regexp">//</span>查看本地镜像<br>docker run -itd --name ubuntu-test ubuntu  <span class="hljs-regexp">//</span>启动容器，并将容器的名字改为ubuntu-test <br>docker exec -it ubuntu-test  <span class="hljs-regexp">/bin/</span>bash  <span class="hljs-regexp">//</span>进入启动的容器下<br>docker ps <span class="hljs-regexp">//</span>查看容器的运行信息<br></code></pre></td></tr></table></figure><h4 id="1-2Docker安装CentOS"><a href="#1-2Docker安装CentOS" class="headerlink" title="1.2Docker安装CentOS"></a>1.2Docker安装CentOS</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker search centos   <span class="hljs-regexp">//</span>搜索centos  镜像<br>docker pull centos:centos7 <span class="hljs-regexp">//</span>拉取指定版本的 CentOS 镜像，这里我们安装指定版本为例(centos7):<br>docker images  <span class="hljs-regexp">//</span>查看本地镜像<br>docker run -itd --name centos-test centos:centos7 <span class="hljs-regexp">//</span>运行容器<br>docker exec -it centos-test  <span class="hljs-regexp">/bin/</span>bash<br>docker ps <span class="hljs-regexp">//</span>查看容器的运行信息<br></code></pre></td></tr></table></figure><h4 id="1-3Docker安装MySQL"><a href="#1-3Docker安装MySQL" class="headerlink" title="1.3Docker安装MySQL"></a>1.3Docker安装MySQL</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker search mysql <span class="hljs-regexp">//</span>查看可用的 MySQL 版本<br>docker pull mysql:latest 拉取 MySQL 镜像<br>docker images  <span class="hljs-regexp">//</span>查看本地镜像<br><span class="hljs-comment">#启动</span><br>docker run --name mysql -p <span class="hljs-number">3306</span>:<span class="hljs-number">3306</span> -e MYSQL_ROOT_PASSWORD=<span class="hljs-number">123456</span> -d mysql<br><span class="hljs-regexp">//</span>参数说明：<br>    -p <span class="hljs-number">3306</span>:<span class="hljs-number">3306</span> ：映射容器服务的 <span class="hljs-number">3306</span> 端口到宿主机的 <span class="hljs-number">3306</span> 端口，外部主机可以直接通过 宿主机ip:<span class="hljs-number">3306</span> 访问到 MySQL 的服务。<br>    -e MYSQL_ROOT_PASSWORD=<span class="hljs-number">123456</span>：设置 MySQL 服务 root 用户的密码。<br>    -d 后台运行容器，并返回容器的ID<br>docker ps <span class="hljs-regexp">//</span>查看容器的运行信息  <br><span class="hljs-comment">#进入容器</span><br>docker exec -it mysql <span class="hljs-regexp">/bin/</span>bash<br><br><span class="hljs-comment">#登录mysql</span><br>mysql -u root -p<br>ALTER USER <span class="hljs-string">&#x27;root&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="hljs-string">&#x27;123456&#x27;</span>; 、、<br><br><span class="hljs-comment">#添加远程登录用户</span><br>CREATE USER <span class="hljs-string">&#x27;salt&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> IDENTIFIED WITH mysql_native_password BY <span class="hljs-string">&#x27;123456&#x27;</span>;<br>GRANT ALL PRIVILEGES ON *.* TO <span class="hljs-string">&#x27;salt&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span>;<br></code></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
-          
-          <category> tools </category>
           
           <category> Docker </category>
           
@@ -1574,16 +1739,14 @@
     
     
     <entry>
-      <title>04_使用Docker安装Oracle镜像及其简单的使用</title>
-      <link href="/posts/18d33c53/"/>
-      <url>/posts/18d33c53/</url>
+      <title>Docker  2、安装Oracle镜像及其简单的使用</title>
+      <link href="/posts/ff21ad0b/"/>
+      <url>/posts/ff21ad0b/</url>
       
         <content type="html"><![CDATA[<blockquote><p>确定你的Ubuntu 16.04下已经安装Docker,没有安装的话可以看我以前的文章<a href="https://www.nonniexie.cn/article/20200709.html">Docker的入门</a>。</p></blockquote><h3 id="1-查找oracle镜像"><a href="#1-查找oracle镜像" class="headerlink" title="1.查找oracle镜像"></a>1.查找oracle镜像</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker search oracle</span><br></code></pre></td></tr></table></figure><p><img src="https://note.youdao.com/yws/api/personal/file/21F997DC5446493C90808ADBEEB1928C?method=download&shareKey=7aaf24fed0ab1676db2ed8cad5b0c840" alt="https://note.youdao.com/yws/api/personal/file/21F997DC5446493C90808ADBEEB1928C?method=download&amp;shareKey=7aaf24fed0ab1676db2ed8cad5b0c840"></p><h3 id="2-拉取docker镜像并运行、进入"><a href="#2-拉取docker镜像并运行、进入" class="headerlink" title="2.拉取docker镜像并运行、进入"></a>2.拉取docker镜像并运行、进入</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker pull registry.aliyuncs.com<span class="hljs-regexp">/helowin/</span>oracle_11g <span class="hljs-regexp">//</span>拉取docker镜像<br>docker images <span class="hljs-regexp">//</span>查看镜像是否下载成功<br>docker run -d -p <span class="hljs-number">1521</span>:<span class="hljs-number">1521</span> --name oracle registry.aliyuncs.com<span class="hljs-regexp">/helowin/</span>oracle_11g <span class="hljs-regexp">//</span>运行该镜像<br>docker exec -it oracle <span class="hljs-regexp">/bin/</span>bash <span class="hljs-regexp">//</span>进入容器<br></code></pre></td></tr></table></figure><h3 id="3-配置环境变量和修改账户密码"><a href="#3-配置环境变量和修改账户密码" class="headerlink" title="3.配置环境变量和修改账户密码"></a>3.配置环境变量和修改账户密码</h3><ul><li><p>进入root账户<code>su root</code>,输入密码：<code>helowin</code></p></li><li><p>编辑<code>/etc/profile</code>文件，并在文件的末尾添加下面内容</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>export ORACLE_HOME=<span class="hljs-regexp">/home/</span>oracle<span class="hljs-regexp">/app/</span>oracle<span class="hljs-regexp">/product/</span><span class="hljs-number">11.2</span>.<span class="hljs-number">0</span>/dbhome_2<br>export ORACLE_SID=helowin<br>export PATH=<span class="hljs-variable">$ORACLE_HOME</span>/bin:<span class="hljs-variable">$PATH</span><br>source <span class="hljs-regexp">/etc/</span>profile  <span class="hljs-regexp">//</span>使修改的生效<br></code></pre></td></tr></table></figure></li><li><p>切换<code>oracle</code>用户:<code>su oracle</code>   </p></li><li><p>使用<code>sqlplus</code>连接到<code>oracle</code>:<code>sqlplus /nolog → connect /as sysdba</code></p></li><li><p>修改 sys 和 system 的密码并且修改密码的有效时间为无限</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">system</span> identified <span class="hljs-keyword">by</span> oracle;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> sys identified <span class="hljs-keyword">by</span> oracle;<br><span class="hljs-keyword">ALTER</span> PROFILE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">LIMIT</span> PASSWORD_LIFE_TIME UNLIMITED;<br></code></pre></td></tr></table></figure></li></ul><p><img src="https://note.youdao.com/yws/api/personal/file/8988EBEA43AC46269F2FF954EE79E4BC?method=download&shareKey=0e7c34c2e28a3f5db230c354e4d8f301" alt="https://note.youdao.com/yws/api/personal/file/8988EBEA43AC46269F2FF954EE79E4BC?method=download&amp;shareKey=0e7c34c2e28a3f5db230c354e4d8f301"></p>]]></content>
       
       
       <categories>
-          
-          <category> tools </category>
           
           <category> Docker </category>
           
@@ -1626,16 +1789,14 @@
     
     
     <entry>
-      <title>02_Docker的初学和安装</title>
-      <link href="/posts/602d5a4e/"/>
-      <url>/posts/602d5a4e/</url>
+      <title>Docker  1、初学和安装</title>
+      <link href="/posts/c86b2d94/"/>
+      <url>/posts/c86b2d94/</url>
       
         <content type="html"><![CDATA[<blockquote><p>前提：我们初学<code>docker</code>的话,我们需要熟悉<code>Linux</code>的命令和背景知识，及其<code>git</code>的相关知识。推荐一本书<br><a href="https://www.jianguoyun.com/p/DY0m0MsQjKL5BxizxKoD">Docker基础与实战</a> (访问密码 : 2vfnt5)</p></blockquote><hr><h3 id="1-Docker教程"><a href="#1-Docker教程" class="headerlink" title="1.Docker教程"></a>1.Docker教程</h3><p><code>Docker</code> 是一个开源的应用容器引擎，基于 <code>Go</code> 语言 并遵从 <code>Apache2.0</code> 协议开源。<code>Docker</code> 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p><h4 id="1-1Docker的优点"><a href="#1-1Docker的优点" class="headerlink" title="1.1Docker的优点"></a>1.1Docker的优点</h4><p><code>Docker</code> 是一个用于开发，交付和运行应用程序的开放平台。<code>Docker</code> 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 <code>Docker</code> 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。</p><h4 id="1-2Docker容器技术和传统虚拟机技术的性能比较"><a href="#1-2Docker容器技术和传统虚拟机技术的性能比较" class="headerlink" title="1.2Docker容器技术和传统虚拟机技术的性能比较"></a>1.2Docker容器技术和传统虚拟机技术的性能比较</h4><table><thead><tr><th>特性</th><th>容器</th><th>虚拟机</th></tr></thead><tbody><tr><td>启动速度</td><td>秒级</td><td>分钟级</td></tr><tr><td>硬盘使用</td><td>一般为MB</td><td>一般为GB</td></tr><tr><td>性能</td><td>接近原生</td><td>弱于</td></tr><tr><td>系统支持量</td><td>单机支持上千个容器</td><td>一般几十个</td></tr><tr><td>隔离性</td><td>安全隔离</td><td>完全隔离</td></tr></tbody></table><h4 id="1-3Docker的相关链接"><a href="#1-3Docker的相关链接" class="headerlink" title="1.3Docker的相关链接"></a>1.3Docker的相关链接</h4><p>Docker官网：<a href="https://www.docker.com/">https://www.docker.com/</a><br>Github Docker 源码：<a href="https://github.com/docker/docker-ce">https://github.com/docker/docker-ce</a></p><hr><h3 id="2-Docker的安装"><a href="#2-Docker的安装" class="headerlink" title="2.Docker的安装"></a>2.Docker的安装</h3><p>Docker支持在主流的操作系统平台上使用，包括Ubuntu、CentOS、Windows和MacOS系统。这里我主要是Ubuntu使用来进行其他的系统安装可以参考<a href="https://www.runoob.com/docker/ubuntu-docker-install.html">https://www.runoob.com/docker/ubuntu-docker-install.html</a></p><h4 id="2-1使用官方安装脚本自动安装"><a href="#2-1使用官方安装脚本自动安装" class="headerlink" title="2.1使用官方安装脚本自动安装"></a>2.1使用官方安装脚本自动安装</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -fsSL https:<span class="hljs-regexp">//g</span>et.docker.com | bash -s docker --mirror Aliyun<br><span class="hljs-regexp">//</span>也可以使用国内 daocloud 一键安装命令<br>curl -sSL https:<span class="hljs-regexp">//g</span>et.daocloud.io/docker | sh<br></code></pre></td></tr></table></figure><h4 id="2-2使用Docker仓库进行安装"><a href="#2-2使用Docker仓库进行安装" class="headerlink" title="2.2使用Docker仓库进行安装"></a>2.2使用Docker仓库进行安装</h4><ol><li><p>选择国内的云服务商，这里选择阿里云为例    </p> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -sSL http:<span class="hljs-regexp">//</span>acs-public-mirror.oss-cn-hangzhou.aliyuncs.com<span class="hljs-regexp">/docker-engine/i</span>nternet | sh -<br></code></pre></td></tr></table></figure></li><li><p>安装所需要的包</p> <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-<span class="hljs-keyword">virtual</span><br></code></pre></td></tr></table></figure></li><li><p>添加使用 HTTPS 传输的软件包以及 CA 证书</p> <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> update<br>sudo apt-<span class="hljs-builtin-name">get</span> install apt-transport-https ca-certificates<br></code></pre></td></tr></table></figure></li><li><p>添加GPG密钥</p> <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt-key adv --keyserver hkp://p<span class="hljs-number">80</span>.pool.sks-keyservers.net:<span class="hljs-number">80</span> --recv-keys <span class="hljs-number">58118</span>E<span class="hljs-number">89</span>F<span class="hljs-number">3</span>A<span class="hljs-number">912897</span>C<span class="hljs-number">070</span>ADBF<span class="hljs-number">76221572</span>C<span class="hljs-number">52609</span>D<br></code></pre></td></tr></table></figure></li><li><p>添加软件源</p> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">echo <span class="hljs-string">&quot;deb https://apt.dockerproject.org/repo ubuntu-xenial main&quot;</span> | sudo tee <span class="hljs-regexp">/etc/</span>apt<span class="hljs-regexp">/sources.list.d/</span>docker.list<br></code></pre></td></tr></table></figure></li><li><p>添加成功后更新软件包缓存</p> <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span><br></code></pre></td></tr></table></figure></li><li><p>安装docker</p> <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install docker-engine<br></code></pre></td></tr></table></figure></li><li><p>启动 docker</p> <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo systemctl <span class="hljs-keyword">enable</span> docker<br>sudo systemctl <span class="hljs-keyword">start</span> docker<br></code></pre></td></tr></table></figure></li><li><p>测试运行</p> <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo docker <span class="hljs-builtin-name">run</span> hello-world<br></code></pre></td></tr></table></figure></li></ol><hr><h3 id="3-Docker镜像加速"><a href="#3-Docker镜像加速" class="headerlink" title="3.Docker镜像加速"></a>3.Docker镜像加速</h3><p>我们一般在<code>DockerHub</code>拉取镜像有时会遇到困难，此时我们就需要配置加速器。这里我使用国内加速器服务，阿里云：<code>https://&lt;你的ID&gt;.mirror.aliyuncs.com</code></p><blockquote><p>没有阿里云的自己去注册一个自己的阿里云账户。</p></blockquote><p>针对Docker客户端版本大于 1.10.0 的用户   </p><p>您可以通过修改<code>daemon</code>配置文件<code>/etc/docker/daemon.json</code>来使用加速器</p><pre><code><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo mkdir -p <span class="hljs-regexp">/etc/</span>docker<br>sudo tee <span class="hljs-regexp">/etc/</span>docker/daemon.json &lt;&lt;-<span class="hljs-string">&#x27;EOF&#x27;</span><br>&#123;<br><span class="hljs-string">&quot;registry-mirrors&quot;</span>: [<span class="hljs-string">&quot;https://nw5iareo.mirror.aliyuncs.com&quot;</span>]<br>&#125;<br>EOF<br>sudo systemctl daemon-reload<br>sudo systemctl restart docker<br>docker info <span class="hljs-regexp">//</span><span class="hljs-regexp">/显示 Docker 系统信息</span><br></code></pre></td></tr></table></figure></code></pre>]]></content>
       
       
       <categories>
-          
-          <category> tools </category>
           
           <category> Docker </category>
           
@@ -1691,14 +1852,14 @@
       
       <categories>
           
-          <category> 静态库与动态库 </category>
+          <category> C/C++ </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 静态库与动态库 </tag>
+            <tag> C/C++ </tag>
             
         </tags>
       
@@ -1707,7 +1868,7 @@
     
     
     <entry>
-      <title>awk文本分析工具</title>
+      <title>Linux  7、shell编程-awk工具</title>
       <link href="/posts/9e005a4d/"/>
       <url>/posts/9e005a4d/</url>
       
@@ -1716,14 +1877,14 @@
       
       <categories>
           
-          <category> Ubuntu </category>
+          <category> Linux </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Ubuntu </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1732,7 +1893,7 @@
     
     
     <entry>
-      <title>sed流编译器</title>
+      <title>Linux  8、shell编程-sed工具</title>
       <link href="/posts/f58872f/"/>
       <url>/posts/f58872f/</url>
       
@@ -1741,14 +1902,14 @@
       
       <categories>
           
-          <category> Ubuntu </category>
+          <category> Linux </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Ubuntu </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1836,7 +1997,7 @@
     
     
     <entry>
-      <title>01_Docker的入门</title>
+      <title>Docker  0、入门</title>
       <link href="/posts/d65bda41/"/>
       <url>/posts/d65bda41/</url>
       
@@ -1844,8 +2005,6 @@
       
       
       <categories>
-          
-          <category> tools </category>
           
           <category> Docker </category>
           
@@ -1863,7 +2022,7 @@
     
     
     <entry>
-      <title>MySQL:MySQL基本操作</title>
+      <title>MySQL之MySQL基本操作</title>
       <link href="/posts/a3d47d22/"/>
       <url>/posts/a3d47d22/</url>
       
@@ -1890,9 +2049,9 @@
     
     
     <entry>
-      <title>Linux:基本指令</title>
-      <link href="/posts/2749aef/"/>
-      <url>/posts/2749aef/</url>
+      <title>Linux  0、基本指令</title>
+      <link href="/posts/15d5e5aa/"/>
+      <url>/posts/15d5e5aa/</url>
       
         <content type="html"><![CDATA[<h1 id="1-查看帮助命令"><a href="#1-查看帮助命令" class="headerlink" title="1.查看帮助命令"></a>1.查看帮助命令</h1><p><code>man man</code>查看帮助内容 </p><h1 id="2-常用系统工作命令"><a href="#2-常用系统工作命令" class="headerlink" title="2.常用系统工作命令"></a>2.常用系统工作命令</h1><h2 id="2-1echo命令"><a href="#2-1echo命令" class="headerlink" title="2.1echo命令"></a>2.1echo命令</h2><p>  用于在终端上输出字符串或者变量提取的值 格式：<code>echo [字符串|$变量]</code></p>   <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">echo Linux.com <span class="hljs-regexp">//</span>输出Linux.com<br>echo <span class="hljs-variable">$SHELL</span>     <span class="hljs-regexp">//</span>输出 <span class="hljs-regexp">/bin/</span>bash<br></code></pre></td></tr></table></figure><h2 id="2-2date命令"><a href="#2-2date命令" class="headerlink" title="2.2date命令"></a>2.2date命令</h2><p>  用于在终端上显示及其设置系统的时间或者日期 格式：<code>date [选项][+指定格式]</code></p><table><thead><tr><th>参数</th><th>作用</th></tr></thead><tbody><tr><td>%t</td><td>跳格</td></tr><tr><td>%H</td><td>小时(24)</td></tr><tr><td>%I</td><td>小时(12)</td></tr><tr><td>%M</td><td>分钟</td></tr><tr><td>%S</td><td>秒</td></tr><tr><td>%j</td><td>今年的第几天</td></tr></tbody></table>   <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">date</span> //查看当前的时间<br><span class="hljs-attribute">date</span> <span class="hljs-string">&quot;+%Y-%m-%d %H:%M:%S&quot;</span>  //<span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">14</span> <span class="hljs-number">22</span>:<span class="hljs-number">00</span>:<span class="hljs-number">53</span><br><span class="hljs-attribute">date</span> -s  <span class="hljs-string">&quot;20200414 8:30:00&quot;</span>  //以管理员的权限设置当前时间为<span class="hljs-number">2020</span>年 <span class="hljs-number">04</span>月 <span class="hljs-number">14</span>日 星期二 <span class="hljs-number">22</span>:<span class="hljs-number">03</span>:<span class="hljs-number">00</span> CST<br><span class="hljs-attribute">date</span> +%j  //查看今天是当年的第几天<br></code></pre></td></tr></table></figure><h2 id="2-3reboot命令"><a href="#2-3reboot命令" class="headerlink" title="2.3reboot命令"></a>2.3reboot命令</h2><p>   用于重启系统,在管理员权限下 格式<code>reboot</code></p><h2 id="2-4poweroff命令"><a href="#2-4poweroff命令" class="headerlink" title="2.4poweroff命令"></a>2.4poweroff命令</h2><p>   用于重启系统,在管理员权限下 格式<code>poweroff </code></p><h2 id="2-5wget命令"><a href="#2-5wget命令" class="headerlink" title="2.5wget命令"></a>2.5wget命令</h2><p>   用于在终端上下载网络文件 格式<code>wget [参数] 下载地址</code></p><table><thead><tr><th>参数</th><th>作用</th></tr></thead><tbody><tr><td>-b</td><td>后台下载模式</td></tr><tr><td>-p</td><td>下载到指定目录</td></tr><tr><td>-t</td><td>最大的连接次数</td></tr><tr><td>-c</td><td>断点续传</td></tr><tr><td>-p</td><td>下载界面上的所有资源</td></tr><tr><td>-r</td><td>递归下载</td></tr></tbody></table>   <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget http:<span class="hljs-regexp">//</span>www.linuxprobe.com<span class="hljs-regexp">/docs/</span>LinuxProbe. pdf <span class="hljs-regexp">//</span>下载此书的PDF文档<br></code></pre></td></tr></table></figure><h2 id="2-6PS命令"><a href="#2-6PS命令" class="headerlink" title="2.6PS命令"></a>2.6PS命令</h2><p>  用于查看系统中的进程状态 格式<code>ps [参数]</code></p><table><thead><tr><th>参数</th><th>作用</th></tr></thead><tbody><tr><td>-a</td><td>显示所有进程(包括其他用户的进程)</td></tr><tr><td>-u</td><td>用户以及其他详细信息</td></tr><tr><td>-x</td><td>显示没有控制终端的进程</td></tr></tbody></table><h2 id="2-7top命令"><a href="#2-7top命令" class="headerlink" title="2.7top命令"></a>2.7top命令</h2><p>   用于动态地监视进程活动与系统负载等信息,相当于任务管理器 格式<code>top</code> </p><h2 id="2-8pidof命令"><a href="#2-8pidof命令" class="headerlink" title="2.8pidof命令"></a>2.8pidof命令</h2><p>   用于查询某一个指定服务器进程的PID 格式<code>pidof [参数][服务器名称]</code></p>   <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">pidof bash <span class="hljs-regexp">//</span>查看本地bash的PID<br></code></pre></td></tr></table></figure><h2 id="2-9kill命令"><a href="#2-9kill命令" class="headerlink" title="2.9kill命令"></a>2.9kill命令</h2><p>   用于终止某个指定PID的服务进程 格式为<code>kill [参数][进程PID]</code></p>   <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">kill <span class="hljs-number">2873</span> <span class="hljs-regexp">//</span>强制停止bash服务<br></code></pre></td></tr></table></figure><h2 id="2-10killall命令"><a href="#2-10killall命令" class="headerlink" title="2.10killall命令"></a>2.10killall命令</h2><p>   用于终止某指定名称的服务所对应的全部进程 格式为<code>killall [参数][进程名称]</code></p><h1 id="3-系统状态监测命令"><a href="#3-系统状态监测命令" class="headerlink" title="3.系统状态监测命令"></a>3.系统状态监测命令</h1><h2 id="3-1ifconfig命令"><a href="#3-1ifconfig命令" class="headerlink" title="3.1ifconfig命令"></a>3.1ifconfig命令</h2><p>   用于获取网站配置与网路状态等信息 格式<code>ifconfig</code></p><h2 id="3-2uname命令"><a href="#3-2uname命令" class="headerlink" title="3.2uname命令"></a>3.2uname命令</h2><p>   用于查看系统内核与系统版本等信息 格式<code>uname -a</code></p><h2 id="3-3uptime命令"><a href="#3-3uptime命令" class="headerlink" title="3.3uptime命令"></a>3.3uptime命令</h2><p>   用于查看系统的负载状态,负载的状态越低越好，尽量不要超过1 格式<code>uptime</code></p><h2 id="3-4free命令"><a href="#3-4free命令" class="headerlink" title="3.4free命令"></a>3.4free命令</h2><p>   用于查看系统中内存的使用情况 格式<code>free -h</code></p><h2 id="3-5who命令"><a href="#3-5who命令" class="headerlink" title="3.5who命令"></a>3.5who命令</h2><p>   用于查看登录主机的用户终端信息 格式<code>who</code></p><h2 id="3-6last命令"><a href="#3-6last命令" class="headerlink" title="3.6last命令"></a>3.6last命令</h2><p>   用于查看所有系统的登录记录 格式<code>last</code></p><h2 id="3-7history命令"><a href="#3-7history命令" class="headerlink" title="3.7history命令"></a>3.7history命令</h2><p>   用来显示历史执行的命令 格式<code>history</code><br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">history <br>history -c //清空历史记录<br></code></pre></td></tr></table></figure></p><h2 id="3-8sosreport命令"><a href="#3-8sosreport命令" class="headerlink" title="3.8sosreport命令"></a>3.8sosreport命令</h2><p>   用于收集系统配置架构信息并输出诊断文档 格式<code>sosreport</code></p><h1 id="4-工作目录贴换命令"><a href="#4-工作目录贴换命令" class="headerlink" title="4.工作目录贴换命令"></a>4.工作目录贴换命令</h1><h2 id="4-1pwd命令"><a href="#4-1pwd命令" class="headerlink" title="4.1pwd命令"></a>4.1pwd命令</h2><p>   用于显示用户当前所有的工作目录 格式<code>pwd</code></p><h2 id="4-2cd命令"><a href="#4-2cd命令" class="headerlink" title="4.2cd命令"></a>4.2cd命令</h2><p>   用户切换工作路径 格式<code>cd [目录名]</code></p><h2 id="4-3ls命令"><a href="#4-3ls命令" class="headerlink" title="4.3ls命令"></a>4.3ls命令</h2><p>   用显示目录文件中文件的信息 格式<code>ls [选项][文件]</code></p><blockquote><p> -a 查看全部文件(包括隐藏文件)<br>    -l 查看文件的属性、大小等详细信息<br>    -la 查看全部文件(包括隐藏文件)的属性、大小等详细信息<br>    -ld 查看目录信息</p></blockquote><h1 id="5-文本文件编译命令"><a href="#5-文本文件编译命令" class="headerlink" title="5.文本文件编译命令"></a>5.文本文件编译命令</h1><h2 id="5-1cat命令"><a href="#5-1cat命令" class="headerlink" title="5.1cat命令"></a>5.1cat命令</h2><p>   用于查看纯文本(内容比较小的) 格式为<code>cat [选项][文件]</code><br>   <code>cat -n mysql_init.c</code>  //-n 显示行号</p><h2 id="5-2more命令"><a href="#5-2more命令" class="headerlink" title="5.2more命令"></a>5.2more命令</h2><p>   用来查询纯文本(内容比较多的) 格式为<code>more [选项][文件]</code><br>   <code>more mysql_init.c</code> //注：最下面有百分比来提示阅读多少</p><h2 id="5-3head命令"><a href="#5-3head命令" class="headerlink" title="5.3head命令"></a>5.3head命令</h2><p>   用于查看纯文本(前n行) 格式为<code>head [选项][文件]</code><br>   <code> head -n 10 mysql_init.c</code> 查看文件中前10行</p><h2 id="5-4tail命令"><a href="#5-4tail命令" class="headerlink" title="5.4tail命令"></a>5.4tail命令</h2><p>   用于查看纯文本文档的后N行或持续刷新内容 格式为<code>tail [选项][文件]</code>。注：tail命令和head十分相似</p><h2 id="5-5tr命令"><a href="#5-5tr命令" class="headerlink" title="5.5tr命令"></a>5.5tr命令</h2><p>   用于替换文本文件中的字符 格式<code>tr  [原字符]  [目标字符]</code><br>   将aa.txt文件中的字符a替换为A<code>cat aa.txt | tr a A</code></p><h2 id="6-6wc命令"><a href="#6-6wc命令" class="headerlink" title="6.6wc命令"></a>6.6wc命令</h2><p>   用于统计文本的行数、字数、字节数 格式<code>wc [参数][文本]</code></p><table><thead><tr><th>参数</th><th>作用</th></tr></thead><tbody><tr><td>-l</td><td>只显示行数</td></tr><tr><td>-w</td><td>只显示单词数</td></tr><tr><td>-c</td><td>只显示字节数</td></tr></tbody></table><h2 id="5-7stat命令"><a href="#5-7stat命令" class="headerlink" title="5.7stat命令"></a>5.7stat命令</h2><p>   用于查看文件的具体存储信息和时间等信息 格式<code>stat 文件名称</code></p><h2 id="5-8cu命令"><a href="#5-8cu命令" class="headerlink" title="5.8cu命令"></a>5.8cu命令</h2><p>   用于按”列”提取字符 格式<code>cut [参数][文本]</code>，使用-f参数来设置需要看的列数，-d来设置间隔符号，-f来设置需要看的行数<br>   <code>cut -d: -f1 /etc/passwd</code> //用来提取passwd下保存的用户信息</p><h2 id="5-9diff命令"><a href="#5-9diff命令" class="headerlink" title="5.9diff命令"></a>5.9diff命令</h2><p>   用于比较多文本的差异 格式<code>diff [参数]文件</code></p>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">diff --brief 文件1 文件2  //来确定两个文件是否不同<br>diff -c 文件1 文件2    //-c来详细比较多文件的差异之处<br></code></pre></td></tr></table></figure><h1 id="6-文件目录管理命令"><a href="#6-文件目录管理命令" class="headerlink" title="6.文件目录管理命令"></a>6.文件目录管理命令</h1><h2 id="6-1touch命令"><a href="#6-1touch命令" class="headerlink" title="6.1touch命令"></a>6.1touch命令</h2><p>   用于创建空白文件或设置文件的时间 格式<code>touch [选项][文件]</code></p><h2 id="6-2mkdir命令"><a href="#6-2mkdir命令" class="headerlink" title="6.2mkdir命令"></a>6.2mkdir命令</h2><p>   用于创建空白的目录 格式<code>mkdir [选项]目录</code><br>   使用-p参数来进行递归创建具有嵌套层次关系的文件，例如： <code>mkdir -p aa/bb/cc</code> </p><h2 id="6-3cp命令"><a href="#6-3cp命令" class="headerlink" title="6.3cp命令"></a>6.3cp命令</h2><p>   同于复制文件 格式<code>cp [参数]源文件 目标文件</code></p><blockquote><p>注意：<br>       目标文件是目录，会把源文件复制到该目录下<br>       目标文件也是普通文件，会询问是否要覆盖它<br>       目标文件不存在，则执行正常复制操作</p></blockquote><table><thead><tr><th>参数</th><th>作用</th></tr></thead><tbody><tr><td>-p</td><td>保留原始文件的属性</td></tr><tr><td>-d</td><td>若对象为”链接文件”，则就保留”链接文件”的属性</td></tr><tr><td>-r</td><td>递归持续复制（常用目录）</td></tr><tr><td>-i</td><td>如果目标文件存在则询问是否复制</td></tr><tr><td>-a</td><td>相当于-pdr(p、d、r为上述参数)</td></tr></tbody></table><h2 id="6-4mv命令"><a href="#6-4mv命令" class="headerlink" title="6.4mv命令"></a>6.4mv命令</h2><p>   用于剪切文件或者文件的重命名 格式<code>mv [选项] 源文件  [目标文件|目标文件名]</code></p><h2 id="6-5rm命令"><a href="#6-5rm命令" class="headerlink" title="6.5rm命令"></a>6.5rm命令</h2><p>   用于删除文件或目录 格式<code>rm [选项] 文件</code><br>   rm -i 文件   //-i删除时提示内容<br>   rm -f  文件 //-f强制删除<br>   rm -r mul   //-r删除目录</p><h2 id="6-7dd命令"><a href="#6-7dd命令" class="headerlink" title="6.7dd命令"></a>6.7dd命令</h2><p>   用于按照指定大小和个数的数据块来复制文件或者转换文件 格式<code>dd [参数]</code><br>   Linux系统下有/ect/zero的设备文件,它不占系统存储空间，但是可以为我们提供无穷无尽的数据资源，同时它也就作为了dd的输出文件。</p><table><thead><tr><th>参数</th><th>作用</th></tr></thead><tbody><tr><td>if</td><td>输入的文件名称</td></tr><tr><td>of</td><td>输出的文件名称</td></tr><tr><td>bs</td><td>设置每个”块”的大小</td></tr><tr><td>count</td><td>设置要复制”块”的个数</td></tr></tbody></table><p>   从/dec/zero设备文件中取一个大小为560M的数据块，然后并保存名为file文件。<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">dd if/ect/zero of=file count=1  bs=560M <br></code></pre></td></tr></table></figure></p><h2 id="6-8file命令"><a href="#6-8file命令" class="headerlink" title="6.8file命令"></a>6.8file命令</h2><p>   用于查看文件的类型 格式<code>file 文件名</code>，例如:<code>file aa.txt</code></p><h1 id="7-打包压缩与搜索命令"><a href="#7-打包压缩与搜索命令" class="headerlink" title="7.打包压缩与搜索命令"></a>7.打包压缩与搜索命令</h1><blockquote><p>tar压缩指令和find查找指定，请移步其他文件</p></blockquote>]]></content>
       
