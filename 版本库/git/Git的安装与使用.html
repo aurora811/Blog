@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Git的入门学习 | 在狂风中的少年</title><meta name="keywords" content="Git"><meta name="author" content="在狂风中的少年"><meta name="copyright" content="在狂风中的少年"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="说明：此文章是学习黑马程序员Git零基础入门到实战详解整理的笔记，主要是Windowns下Git的安装、基本使用、分支管理、版本回退、冲突解决、GUI工具的介绍、文件忽略机制等。如想在Linux平台下安装Git 查看通过https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_43630810&#x2F;article&#x2F;details&#x2F;104483007来进行安装。 1.Git基础Git是目前世界上最先进的分布式版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git的入门学习">
+<meta property="og:url" content="https://aurora811.github.io/%E7%89%88%E6%9C%AC%E5%BA%93/git/Git%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8.html">
+<meta property="og:site_name" content="在狂风中的少年">
+<meta property="og:description" content="说明：此文章是学习黑马程序员Git零基础入门到实战详解整理的笔记，主要是Windowns下Git的安装、基本使用、分支管理、版本回退、冲突解决、GUI工具的介绍、文件忽略机制等。如想在Linux平台下安装Git 查看通过https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_43630810&#x2F;article&#x2F;details&#x2F;104483007来进行安装。 1.Git基础Git是目前世界上最先进的分布式版">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2019-07-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-02T13:13:26.000Z">
+<meta property="article:author" content="在狂风中的少年">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://aurora811.github.io/%E7%89%88%E6%9C%AC%E5%BA%93/git/Git%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git的入门学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-02 21:13:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Blog/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">97</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">31</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">44</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">在狂风中的少年</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Git的入门学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-07-14T16:00:00.000Z" title="发表于 2019-07-15 00:00:00">2019-07-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-02T13:13:26.000Z" title="更新于 2023-08-02 21:13:26">2023-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%89%88%E6%9C%AC%E5%BA%93/">版本库</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%89%88%E6%9C%AC%E5%BA%93/git/">git</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git的入门学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>说明：此文章是学习黑马程序员Git零基础入门到实战详解整理的笔记，主要是Windowns下Git的安装、基本使用、分支管理、版本回退、冲突解决、GUI工具的介绍、文件忽略机制等。如想在Linux平台下安装Git 查看通过<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43630810/article/details/104483007">https://blog.csdn.net/qq_43630810/article/details/104483007</a>来进行安装。</p>
+<h1 id="1-Git基础"><a href="#1-Git基础" class="headerlink" title="1.Git基础"></a>1.Git基础</h1><p>Git是目前世界上最先进的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
+<h2 id="1-1谈谈Git与SVN的区别"><a href="#1-1谈谈Git与SVN的区别" class="headerlink" title="1.1谈谈Git与SVN的区别"></a>1.1谈谈Git与SVN的区别</h2><ol>
+<li><strong>Git是分布式的，svn是集中式的</strong>：这个是Git和其他非分布式的版本控制系统的，最主要的区别。</li>
+<li><strong>Git把内容按元数据方式存储，而SVN是按文件</strong>：所有的资源控制系统都是把文件的元信息隐藏在一个类似.svn、.git的文件中</li>
+<li><strong>Gitf分支和SVN的分支不同</strong>：分支在SVN中一点都不特别，其实它就是版本库中的另一个目录</li>
+<li><strong>Git没有一个全局的版本号，而SVN有</strong>：目前为止这是SVN相比Git缺少最大的一个特征</li>
+<li><strong>Git的内容完整性要优于SVN</strong>：Git 的内容存储使用的是 SHA-1 哈希算法。这能确保代码内容的完整性，确保在遇到磁盘故障和网络问题时降低对版本库的破坏。<br><img src="https://img-blog.csdnimg.cn/20200225200234787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="SVN集中式管理系统"><br><img src="https://img-blog.csdnimg.cn/20200225200308575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="git分布式管理控制系统"></li>
+</ol>
+<h2 id="1-2SVN的弊端与Git的好处"><a href="#1-2SVN的弊端与Git的好处" class="headerlink" title="1.2SVN的弊端与Git的好处"></a>1.2SVN的弊端与Git的好处</h2><blockquote>
+<p>SVN弊端：<br>1、中央服务器坏了，一切OVER<br>2、所有的上传和下载都是基于文件传输方式完成的，速度会慢</p>
+</blockquote>
+<blockquote>
+<p>git好处<br>1、无需连网也能记录查看历史版本信息<br>2、无需过多依赖中央仓库，每个人本地也有全部的信息<br>向中央仓库传输内容依托的是文件流传输，速度比SVN块N倍     </p>
+</blockquote>
+<h2 id="1-3Git与GitHub"><a href="#1-3Git与GitHub" class="headerlink" title="1.3Git与GitHub"></a>1.3Git与GitHub</h2><p>Git的安装与GithHub账户的注册不做介绍。<br><strong>1 、两者区别</strong><br>Git(<a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a>)是一个分布式版本控制系统，简单的说其就是一个软件，用于记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的软件。</p>
+<p>Github（<a target="_blank" rel="noopener" href="https://www.github.com/">https://www.github.com</a>）是一个为用户提供Git服务的网站，简单说就是一个可以放代码的地方（不过可以放的当然不仅是代码）。Github除了提供管理Git的web界面外，还提供了订阅、关注、讨论组、在线编辑器等丰富的功能。Github被称之为全球最大的基友网站。</p>
+<h1 id="2-Git的使用过程"><a href="#2-Git的使用过程" class="headerlink" title="2.Git的使用过程"></a>2.Git的使用过程</h1><h2 id="2-1本地仓库"><a href="#2-1本地仓库" class="headerlink" title="2.1本地仓库"></a>2.1本地仓库</h2><h3 id="2-1-1工作流程"><a href="#2-1-1工作流程" class="headerlink" title="2.1.1工作流程"></a>2.1.1工作流程</h3><p>Git本地操作分为三个区域：</p>
+<p>工作流程：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200224154216190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>工作流程：<br><img src="https://img-blog.csdnimg.cn/20200224154313643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2-1-2本地仓库操作"><a href="#2-1-2本地仓库操作" class="headerlink" title="2.1.2本地仓库操作"></a>2.1.2本地仓库操作</h3><p>什么是仓库呢？仓库又名版本库，英文名repository，我们可以简单理解成是一个目录，用于存放代码的，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除等操作Git都能跟踪到。</p>
+<ul>
+<li>在安装好后首次使用我们需要进行全局配置</li>
+</ul>
+<p>在桌面空白处右键，点击“Git Bash Here” 已打开Git命令行窗口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git config --global user.name <span class="hljs-string">&quot;用户名&quot;</span><br>$ git config --global user.email <span class="hljs-string">&quot;邮箱地址&quot;</span><br>$ git config --list<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：配置完成后输入git config –global user.name和git config –global user.email进行查看，是否是自己所绑定的。</p>
+</blockquote>
+<ul>
+<li>创建仓库<br>当我们需要让Git去管理某个项目的时候，就需要创建仓库了。在创建仓库时使用的目录不一定要求是非空的目录，但是最好使用一个非空的目录。</li>
+</ul>
+<blockquote>
+<p>注意：在使用过程中最好不要使用包含中文的目录名（目录亦是如此）。</p>
+</blockquote>
+<p>a、创建空目录：mkdir pro_git  </p>
+<p>b、进入项目目录中：cd pro_git   </p>
+<p>c、Git仓库初始化：（让Git知道，它需要来管理这几个目录）<br>     指令：git init</p>
+<p><img src="https://img-blog.csdnimg.cn/20200224160427637.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>Git常用指令操作<br>查看当前状态：git status 【非必要】<br>添加到缓存区：git add 文件名</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">说明：git add指令，可以添加一个文件，也可以同时添加多个文件。<br>语法1：git add 文件名<br>语法2：git add 文件名1 文件名2 文件名3 …<br>语法3：git add .					【添加当前目录到缓存区中】<br></code></pre></td></tr></table></figure>
+<p>提交至版本库：git commit -m “注释内容”<br><img src="https://img-blog.csdnimg.cn/20200224161027746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2-1-3版本回退"><a href="#2-1-3版本回退" class="headerlink" title="2.1.3版本回退"></a>2.1.3版本回退</h3><p>版本回退分为两步骤进行操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">步骤：<br>	①查看版本，确定需要回到的时刻点<br>			指令：<br>				git <span class="hljs-built_in">log</span><br>				git <span class="hljs-built_in">log</span> --pretty=oneline<br>	②回退操作<br>			指令：<br>				git reset --hard 提交编号<br></code></pre></td></tr></table></figure>
+<p>案例：查看版本和回退到创建第一个文件readme.txt的版本。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200224161625191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>注意:回退到过去的版本，要想在回到之间最新的版本的时候。可以通过之间查看的的提交码回到最新版本，也可以使用(<em>git reflog</em>)指令去查看历史操作，以得到最新的commit ID。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200224162340293.png" alt="在这里插入图片描述"></p>
+<h2 id="2-3远程仓库"><a href="#2-3远程仓库" class="headerlink" title="2.3远程仓库"></a>2.3远程仓库</h2><p>主要以GitHub为例。</p>
+<h3 id="2-3-1GithHub创建"><a href="#2-3-1GithHub创建" class="headerlink" title="2.3.1GithHub创建"></a>2.3.1GithHub创建</h3><p>打开创建仓库页面：<a target="_blank" rel="noopener" href="https://github.com/new">https://github.com/new</a><br>圈出的部分为必填项，其余根据实际需要选择性补充：<br><img src="https://img-blog.csdnimg.cn/20200224192826877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="Github创建仓库"></p>
+<blockquote>
+<p>注意：仓库名要在当前用户下唯一。</p>
+</blockquote>
+<h3 id="2-3-2两种不同的使用方式"><a href="#2-3-2两种不同的使用方式" class="headerlink" title="2.3.2两种不同的使用方式"></a>2.3.2两种不同的使用方式</h3><h4 id="2-3-2-1基于http-https协议"><a href="#2-3-2-1基于http-https协议" class="headerlink" title="2.3.2.1基于http/https协议"></a>2.3.2.1基于http/https协议</h4><ol>
+<li><p>创建空目录，名称为shop<br><img src="https://img-blog.csdnimg.cn/20200224193635888.png" alt="创建空目录"></p>
+</li>
+<li><p>使用clone指令克隆线上仓库到本地</p>
+</li>
+</ol>
+<p>语法：git clone  线上仓库<br><img src="https://img-blog.csdnimg.cn/20200224194232490.png" alt="克隆线上仓库"></p>
+<ol start="3">
+<li>在仓库上做对应的操作（提交暂存区、提交本地仓库、提交线上仓库、拉取线上仓库）<br>提交到线上仓库的指令：git push<br>拉取线上仓库：git pull<br><img src="https://img-blog.csdnimg.cn/20200224195206506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="提交到线上仓库"></li>
+</ol>
+<blockquote>
+<p>提醒：在以后每天工作中第一件事就是先git pull拉取线上最新的版本；而下班前要做的是git push，将本地的代码提交到线上仓库。</p>
+</blockquote>
+<h4 id="2-3-2-2基于ssh协议（推荐）"><a href="#2-3-2-2基于ssh协议（推荐）" class="headerlink" title="2.3.2.2基于ssh协议（推荐）"></a>2.3.2.2基于ssh协议（推荐）</h4><p>该方式与前面https方式相比，此方式影响github对于用户的身份鉴权方式，对于git的具体操作（如提交本地、添加注释、提交远程等操作）没有任何影响。</p>
+<ol>
+<li><p>生成公私玥对指令（需先OpenSSH安装，若是没有联系我）：ssh-keygen -t rsa -C “注册邮箱”<br><img src="https://img-blog.csdnimg.cn/20200224201842503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="OpenSSH公私钥"></p>
+</li>
+<li><p>上传公钥内容（id_rsa.pub）<br><img src="https://img-blog.csdnimg.cn/20200224204158846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="上传公钥内容"></p>
+</li>
+<li><p>执行后续git的操作</p>
+</li>
+</ol>
+<ul>
+<li>clone线上仓库到本地（git clone）</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200224205618772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="SSH克隆线上仓库"></p>
+<ul>
+<li>修改文件后添加缓存区、提交本地仓库、提交线上仓库</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200224205747971.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="SSH添加新文件"></p>
+<p><em>在git push的时候并没有提示要求我们输入帐号密码，说明公私玥已经实现了用户身份鉴权</em>。</p>
+<h3 id="2-3-3分支管理"><a href="#2-3-3分支管理" class="headerlink" title="2.3.3分支管理"></a>2.3.3分支管理</h3><p>什么是分支？<br><img src="https://img-blog.csdnimg.cn/20200224210447494.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="分支管理"><br>      在版本回退中，每次提交后都会有记录，Git把它们串成时间线，形成类似于时间轴的东西，这个时间轴就是一个分支，我们称之为==master分支==。<br>     而在开发的时候往往是团队协作，多人进行开发，因此光有一个分支是无法满足多人同时开发的需求的，并且在分支上工作并不影响其他分支的正常使用，会更加安全，Git鼓励开发者使用分支去完成一些开发任务。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">分支相关指令：<br>查看分支：git branch<br>创建分支：git branch 分支名<br>切换分支：git checkout 分支名 <br>删除分支：git branch -d 分支名<br>合并分支：git merge 被合并的分支名<br></code></pre></td></tr></table></figure>
+<p>查看分支：<br><img src="https://img-blog.csdnimg.cn/20200224211033367.png" alt="查看分支"></p>
+<blockquote>
+<p>注意：当前分支前面有个标记“*”；</p>
+</blockquote>
+<p>创建分支：<br><img src="https://img-blog.csdnimg.cn/20200224211354922.png" alt="创建分支"><br>切换分支：<br><img src="https://img-blog.csdnimg.cn/20200224211544583.png" alt="切换分支"><br>合并分支：<br>现在先将dev分支下的readme文件中添加一行并提交到本地<br><img src="https://img-blog.csdnimg.cn/20200224234057493.png" alt="dev分支下添加"><br>切换到master分支下观察readme文件的内容<br><img src="https://img-blog.csdnimg.cn/20200224235124876.png" alt="master分支"><br>将dev分支的内容和master分支合并：<br><img src="https://img-blog.csdnimg.cn/20200224235401176.png" alt="合并分支"><br>删除分支：<br><img src="https://img-blog.csdnimg.cn/20200224235535595.png" alt="删除分支"></p>
+<blockquote>
+<p>注意：在删除分支的时候，一定要先退出要删除的分支，然后才能删除。</p>
+</blockquote>
+<p>合并所有分支之后，需要将master分支提交线上远程仓库中：<br><img src="https://img-blog.csdnimg.cn/20200225000649744.png" alt="提交到线上仓库"></p>
+<h3 id="2-3-4冲突的产生与解决"><a href="#2-3-4冲突的产生与解决" class="headerlink" title="2.3.4冲突的产生与解决"></a>2.3.4冲突的产生与解决</h3><p>案例：模拟产生冲突。</p>
+<ol>
+<li>下班之后同事在线上仓库进行修改<br><img src="https://img-blog.csdnimg.cn/2020022515324582.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="线上修改"></li>
+</ol>
+<blockquote>
+<p>注意：此时我的本地仓库的内容和线上不一致的。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200225153722804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="线上和线下的区别"></p>
+<ol start="2">
+<li>第二天上班的时候，没有拉取线（git pull）上的文件，而直接修改了本地所对应的文件内容。</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20200225191619228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="修改readm.txt文件"></p>
+<ol start="3">
+<li>在下班的时候将文件推送到线上仓库（git push）</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/2020022519135988.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="修改完本地推向线上"></p>
+<blockquote>
+<p>提示我们要在再次push之间先git pull操作。</p>
+</blockquote>
+<p>==【解决冲突】==<br>4. 先git pull<br><img src="https://img-blog.csdnimg.cn/20200225191822755.png" alt="解决冲突拉取线上仓库文件"></p>
+<ol start="5">
+<li><p>打开冲突文件，解决冲突<br>解决方法：需要和同事进行商量，看代码如何保留，然后将改好的文件再次提交即可。<br><img src="https://img-blog.csdnimg.cn/20200225192054373.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="冲突文件合并"></p>
+</li>
+<li><p>重新提交<br><img src="https://img-blog.csdnimg.cn/20200225192448762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="重新提交解决冲突文件"></p>
+</li>
+<li><p>查看线上效果<br><img src="https://img-blog.csdnimg.cn/20200225192641491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="解决冲突后的线上效果"></p>
+</li>
+</ol>
+<blockquote>
+<p>新手小技巧：上班第一件事先git pull,可以在一定程度上避免冲突的产生。</p>
+</blockquote>
+<h1 id="3-实用技能"><a href="#3-实用技能" class="headerlink" title="3.实用技能"></a>3.实用技能</h1><h2 id="3-1图形管理工具"><a href="#3-1图形管理工具" class="headerlink" title="3.1图形管理工具"></a>3.1图形管理工具</h2><h3 id="3-1-1GitHub-for-Dektop"><a href="#3-1-1GitHub-for-Dektop" class="headerlink" title="3.1.1GitHub for Dektop"></a>3.1.1GitHub for Dektop</h3><p>Github出品的软件，功能完善，使用方便。对于经常使用GitHub的开发人员来说是非常便捷的工具。界面干净，用起来非常顺手，顶部的分支时间线非常绚丽。</p>
+<h3 id="3-1-2Source-tree"><a href="#3-1-2Source-tree" class="headerlink" title="3.1.2Source tree"></a>3.1.2Source tree</h3><p>老牌的Git GUI管理工具了，也号称是最好用的Git GUI工具。功能丰富，基本操作和高级操作都非常流畅，适合初学者上手。</p>
+<h3 id="3-1-3TortoiseGit"><a href="#3-1-3TortoiseGit" class="headerlink" title="3.1.3TortoiseGit"></a>3.1.3TortoiseGit</h3><p>对于熟悉SVN的开发人员来说，这个小乌龟图标应该是非常友善了。TortoiseGit 简称 tgit, 中文名海龟Git。它与其前辈TortoiseSVN都是非常优秀的开源版本控制客户端软件。</p>
+<h2 id="3-2忽略文件"><a href="#3-2忽略文件" class="headerlink" title="3.2忽略文件"></a>3.2忽略文件</h2><p>场景：在项目目录下有很多万年不变的文件目录，例如css、js、images等，或者还有一些目录即便有改动，我们也不想让其提交到远程仓库的文档，此时我们可以使用“忽略文件”机制来实现需求。</p>
+<p>忽略文件需要新建一个名为==.gitignore==的文件，该文件用于声明忽略文件或不忽略文件的规则，规则对当前目录及其子目录生效。<br>注意：该文件因为没有文件名，没办法直接在windows目录下直接创建，可以通过命令行Git Bash来touch创建。</p>
+<p>常见规则写法有如下几种：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>）<span class="hljs-regexp">/mtk/</span>               过滤整个文件夹<br><span class="hljs-number">2</span>）*.zip                过滤所有.zip文件<br><span class="hljs-number">3</span>）<span class="hljs-regexp">/mtk/</span><span class="hljs-keyword">do</span>.c           过滤某个具体文件<br><span class="hljs-number">4</span>) !index.php			   不过滤具体某个文件	<br></code></pre></td></tr></table></figure>
+<p>在.gitignore文件中，以#开头都是注释。<br>案例：</p>
+<ol>
+<li><p>先在本地创建一个js目录以及目录中的js文件<br><img src="https://img-blog.csdnimg.cn/20200225164330578.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="本地创建js"></p>
+</li>
+<li><p>依次提交本地和线上<br><img src="https://img-blog.csdnimg.cn/20200225164734502.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="依次提交本地和线上"></p>
+</li>
+<li><p>创建.gitignore文件并编写文件中的规则<br><img src="https://img-blog.csdnimg.cn/20200225163843486.png" alt="创建.gitignore文件"></p>
+</li>
+<li><p>再次提交本地和线上<br><img src="https://img-blog.csdnimg.cn/20200225170844874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjMwODEw,size_16,color_FFFFFF,t_70" alt="提交本地和线上index.js"></p>
+</li>
+<li><p>并观察本地和线上的仓库是否有新加的index.js文件</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20200225171221967.png" alt="线上仓库查看"><br><img src="https://img-blog.csdnimg.cn/20200225165725541.png" alt="本地文件"></p>
+<p>由于我本地安装的工具是TortoiseGit，明显的看出来index.js文件是被忽略的文件。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git/">Git</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/MFC/C++%20MFC%E6%A1%86%E6%9E%B6%20%20%20MFC%E7%BA%AF%E4%BB%A3%E7%A0%81%E4%BB%A3%E7%A0%81%E5%88%9B%E5%BB%BA%E6%8C%89%E9%92%AE.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++ MFC框架:MFC纯代码代码创建按钮</div></div></a></div><div class="next-post pull-right"><a href="/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/C-C/C++%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%20%20C++%E7%9A%84%E5%9B%9B%E7%A7%8D_cast%E8%BF%90%E7%AE%97%E7%AC%A6.html"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++基本语法之C++中的四种_cast运算符</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://aurora811-1300371803.cos.ap-chengdu.myqcloud.com/image/Blog/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">在狂风中的少年</div><div class="author-info__description">每天进步一点点</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">97</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">31</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">44</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43630810?spm=1000.2115.3001.5343"><i class="fas fa-arrow-circle-right"></i><span>CSDN</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/aurora811" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Git%E5%9F%BA%E7%A1%80"><span class="toc-text">1.Git基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E8%B0%88%E8%B0%88Git%E4%B8%8ESVN%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.1谈谈Git与SVN的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2SVN%E7%9A%84%E5%BC%8A%E7%AB%AF%E4%B8%8EGit%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-text">1.2SVN的弊端与Git的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3Git%E4%B8%8EGitHub"><span class="toc-text">1.3Git与GitHub</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Git%E7%9A%84%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B"><span class="toc-text">2.Git的使用过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-text">2.1本地仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">2.1.1工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-text">2.1.2本地仓库操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="toc-text">2.1.3版本回退</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">2.3远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1GithHub%E5%88%9B%E5%BB%BA"><span class="toc-text">2.3.1GithHub创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2%E4%B8%A4%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">2.3.2两种不同的使用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-1%E5%9F%BA%E4%BA%8Ehttp-https%E5%8D%8F%E8%AE%AE"><span class="toc-text">2.3.2.1基于http&#x2F;https协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-2%E5%9F%BA%E4%BA%8Essh%E5%8D%8F%E8%AE%AE%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-text">2.3.2.2基于ssh协议（推荐）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-text">2.3.3分支管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4%E5%86%B2%E7%AA%81%E7%9A%84%E4%BA%A7%E7%94%9F%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="toc-text">2.3.4冲突的产生与解决</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%AE%9E%E7%94%A8%E6%8A%80%E8%83%BD"><span class="toc-text">3.实用技能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1%E5%9B%BE%E5%BD%A2%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-text">3.1图形管理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1GitHub-for-Dektop"><span class="toc-text">3.1.1GitHub for Dektop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2Source-tree"><span class="toc-text">3.1.2Source tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3TortoiseGit"><span class="toc-text">3.1.3TortoiseGit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-text">3.2忽略文件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E5%8D%9A%E5%AE%A2/Hexo/%E5%8D%9A%E5%AE%A2%20%20%E4%BD%BF%E7%94%A8ubuntu%2020.04%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2.html" title="博客之使用ubuntu 20.04搭建Hexo博客"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客之使用ubuntu 20.04搭建Hexo博客"/></a><div class="content"><a class="title" href="/%E5%8D%9A%E5%AE%A2/Hexo/%E5%8D%9A%E5%AE%A2%20%20%E4%BD%BF%E7%94%A8ubuntu%2020.04%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2.html" title="博客之使用ubuntu 20.04搭建Hexo博客">博客之使用ubuntu 20.04搭建Hexo博客</a><time datetime="2023-08-15T16:00:00.000Z" title="发表于 2023-08-16 00:00:00">2023-08-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%B7%A5%E5%85%B7/BookxNote-Pro/%E5%B7%A5%E5%85%B7%20BookxNote%20Pro%E9%98%85%E8%AF%BB%E7%A5%9E%E5%99%A8.html" title="Windows版Marginnote 3 阅读神器之BookxNote Pro"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows版Marginnote 3 阅读神器之BookxNote Pro"/></a><div class="content"><a class="title" href="/%E5%B7%A5%E5%85%B7/BookxNote-Pro/%E5%B7%A5%E5%85%B7%20BookxNote%20Pro%E9%98%85%E8%AF%BB%E7%A5%9E%E5%99%A8.html" title="Windows版Marginnote 3 阅读神器之BookxNote Pro">Windows版Marginnote 3 阅读神器之BookxNote Pro</a><time datetime="2023-07-09T16:00:00.000Z" title="发表于 2023-07-10 00:00:00">2023-07-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%20%E7%BC%96%E8%AF%91Linux%E5%86%85%E6%A0%B8.html" title="嵌入式Linux之编译Linux内核"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="嵌入式Linux之编译Linux内核"/></a><div class="content"><a class="title" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%20%E7%BC%96%E8%AF%91Linux%E5%86%85%E6%A0%B8.html" title="嵌入式Linux之编译Linux内核">嵌入式Linux之编译Linux内核</a><time datetime="2023-06-30T16:00:00.000Z" title="发表于 2023-07-01 00:00:00">2023-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%20%E7%BC%96%E8%AF%91Linux%E5%86%85%E6%A0%B8%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%E4%B8%80.html" title="嵌入式Linux之编译Linux内核出现错误"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="嵌入式Linux之编译Linux内核出现错误"/></a><div class="content"><a class="title" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%20%E7%BC%96%E8%AF%91Linux%E5%86%85%E6%A0%B8%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%E4%B8%80.html" title="嵌入式Linux之编译Linux内核出现错误">嵌入式Linux之编译Linux内核出现错误</a><time datetime="2023-06-30T16:00:00.000Z" title="发表于 2023-07-01 00:00:00">2023-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%20%E7%BC%96%E8%AF%91Linux%E5%86%85%E6%A0%B8%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%E4%BA%8C.html" title="嵌入式Linux之编译Linux内核出现错误二"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="嵌入式Linux之编译Linux内核出现错误二"/></a><div class="content"><a class="title" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%20%E7%BC%96%E8%AF%91Linux%E5%86%85%E6%A0%B8%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%E4%BA%8C.html" title="嵌入式Linux之编译Linux内核出现错误二">嵌入式Linux之编译Linux内核出现错误二</a><time datetime="2023-06-30T16:00:00.000Z" title="发表于 2023-07-01 00:00:00">2023-07-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2023 By 在狂风中的少年</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="http://aurora811.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
